@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Doa Bunda - Home</title>
-</head>
-<body>
-    <h1 class="text-red-300">ini adalah halaman home</h1>
-</body>
-</html>
+@extends('layouts.general.app')
+
+@section('title', 'Homepage')
+@section('content')
+    <h1>Ini adalah halaman utama</h1>
+@endsection
