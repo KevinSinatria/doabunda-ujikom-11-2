@@ -1,16 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Tailwind Test</title>
-    @vite('resources/css/app.css')
+    <title>Doa Bunda - Home</title>
 </head>
-
 <body>
-    <h1 class="text-xl text-red-500">Halo dari laravel Tailwind</h1>
+    <h1 class="text-red-300">ini adalah halaman home</h1>
 </body>
-
 </html>
