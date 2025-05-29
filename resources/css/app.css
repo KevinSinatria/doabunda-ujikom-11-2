@@ -1,17 +1,92 @@
 /* @tailwind base;
 @tailwind components;
 @tailwind utilities; */
-@import 'tailwindcss';
+@import "tailwindcss";
 
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
-@source "../views";
-@source '../views/*.blade.php';
+@source "./resources/views/**/*.blade.php";
+@source "./resources/js/**/*.js";
+@source "./app/View/Components/**/*.php";
+@source "./storage/framework/views/*.php";
 
 @theme {
-  --font-sans:
-    Figtree, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
-    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-sans: Figtree, ui-sans-serif, system-ui, sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+        "Noto Color Emoji";
+    --font-poppins: Poppins, ui-sans-serif, system-ui, sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+        "Noto Color Emoji";
+}
+
+@font-face {
+    font-family: "Poppins";
+    src: url("../fonts/Poppins/Poppins-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap; /* Untuk menambah performa */
+}
+
+@font-face {
+    font-family: "Poppins";
+    src: url("../fonts/Poppins/Poppins-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Poppins";
+    src: url("../fonts/Poppins/Poppins-SemiBold.ttf") format("truetype");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Poppins";
+    src: url("../fonts/Poppins/Poppins-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Poppins";
+    src: url("../fonts/Poppins/Poppins-Light.ttf") format("truetype");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Poppins";
+    src: url("../fonts/Poppins/Poppins-ExtraLight.ttf") format("truetype");
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Poppins";
+    src: url("../fonts/Poppins/Poppins-ExtraBold.ttf") format("truetype");
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Poppins";
+    src: url("../fonts/Poppins/Poppins-Thin.ttf") format("truetype");
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Poppins";
+    src: url("../fonts/Poppins/Poppins-Black.ttf") format("truetype");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
 }
 
 /*
@@ -23,11 +98,11 @@
   color utility to any element that depends on these defaults.
 */
 @layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentcolor);
-  }
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: var(--color-gray-200, currentcolor);
+    }
 }
