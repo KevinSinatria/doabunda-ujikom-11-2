@@ -2,5 +2,5 @@
 
 @section('title', 'Homepage')
 @section('content')
-    <h1>Ini adalah halaman utama</h1>
+    @include('components.general.homepage.herosection')
 @endsection
