@@ -1,4 +1,4 @@
-<header id="header" x-data="{ open: false }" x-bind:class="open ? 'bg-[#FFEAC5] lg:bg-transparent' : 'backdrop-blur'"
+<header id="header" x-data="{ open: false }" x-bind:class="open ? 'bg-[#FFEAC5] lg:bg-transparent' : 'backdrop-blur-2xl'"
     class="fixed w-full top-0 lg:backdrop-blur-none shadow lg:shadow-none border-b lg:border-b-0 border-b-gray-600 z-50 hover:mx-12 hover:mt-2 hover:w-[93%] hover:rounded-full hover:shadow hover:border hover:border-gray-400 lg:hover:backdrop-blur transition-all duration-300 h-16">
     <nav class="flex items-center justify-between px-4 py-2">
         {{-- left-side --}}

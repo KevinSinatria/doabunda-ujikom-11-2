@@ -15,7 +15,7 @@
 
 <body class="font-poppins overflow-x-hidden">
     @include('partials.header')
-    <main>
+    <main class="bg-[#FFEAC5]">
         @yield('content')
     </main>
     @include('partials.footer')
