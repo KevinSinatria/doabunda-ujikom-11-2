@@ -1,5 +1,11 @@
-<header id="header" x-data="{ open: false }" x-bind:class="open ? 'bg-[#FFEAC5] lg:bg-transparent' : 'backdrop-blur-2xl'"
-    class="fixed w-full top-0 lg:backdrop-blur-none shadow lg:shadow-none border-b lg:border-b-0 border-b-gray-600 z-50 hover:mx-12 hover:mt-2 hover:w-[93%] hover:rounded-full hover:shadow hover:border hover:border-gray-400 lg:hover:backdrop-blur transition-all duration-300 h-16">
+@php
+    $routeName = Route::currentRouteName();
+    $isHome = $routeName === 'general.home';
+@endphp
+{{-- Homepages only with hover effect if scrollY is lower than 80px --}}
+<header id="{{ $isHome ? 'header-home' : 'header-other' }}" x-data="{ open: false }"
+    x-bind:class="open ? 'bg-[#FFEAC5] lg:bg-transparent' : 'backdrop-blur-2xl'"
+    class="fixed w-full top-0 {{ $isHome ? 'lg:backdrop-blur-none hover:mx-12 hover:mt-2 hover:w-[93%] hover:rounded-full hover:shadow hover:border hover:border-gray-400 lg:hover:backdrop-blur' : 'lg:backdrop-blur' }} shadow lg:shadow-none border-b lg:border-b-0 border-b-gray-600 z-50 transition-all duration-300 h-16">
     <nav class="flex items-center justify-between px-4 py-2">
         {{-- left-side --}}
         <div class="flex gap-4 px-2 items-center">
@@ -60,7 +66,7 @@
 
             @if (Auth::check())
                 @if (Auth::user()->role == 'admin')
-                    <a href="{{ route('admin.dashboard') }}" class="relative text-xl group cursor-pointer">
+                    <a href="{{ route('admin.dashboard') }}" class="relative group cursor-pointer">
                         Dashboard
                         <span
                             class="absolute bottom-[1px] left-0 w-full h-[1px] bg-gray-800 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-200 ease-in-out z-10"></span>
@@ -74,7 +80,15 @@
             @if (Auth::user()->role == 'admin')
                 <div class="flex px-4">
                     <i class="ph-duotone ph-user-circle"></i>
-
+                    <label class="hamburger cursor-pointer block lg:hidden">
+                        <input type="checkbox" x-model="open" />
+                        <svg viewBox="0 0 32 32">
+                            <path class="line line-top-bottom"
+                                d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22">
+                            </path>
+                            <path class="line" d="M7 16 27 16"></path>
+                        </svg>
+                    </label>
                 </div>
             @elseif (Auth::user()->role == 'customer')
                 <div class="flex justify-between gap-4 px-4">
@@ -108,7 +122,8 @@
             class="lg:hidden fixed w-full px-16 top-16 left-0 h-[calc(100vh-4rem)] bg-[#FFEAC5]">
             <div class="flex h-full flex-col gap-8">
                 {{-- Top Menu (Medium Screen and Smaller) --}}
-                <div class="flex flex-1 flex-col gap-8 items-center justify-center w-full border-b border-b-gray-900 py-12">
+                <div
+                    class="flex flex-1 flex-col gap-8 items-center justify-center w-full border-b border-b-gray-900 py-12">
                     @if (request()->routeIs('general.home'))
                         <a href="{{ route('general.home') }}"
                             class="relative group text-xl cursor-pointer font-medium">
