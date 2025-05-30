@@ -1,9 +1,9 @@
 <section
-    class="h-screen w-full flex flex-col lg:flex-row items-center justify-center bg-[#FFEAC5] overflow-hidden relative px-4 sm:px-6 lg:px-0">
+    id="herosection" class="h-screen w-full flex flex-col lg:flex-row items-center justify-center bg-[#FFEAC5] overflow-hidden relative px-4 sm:px-6 lg:px-0">
     <!-- Text Content -->
     <div
         class="flex-1 max-w-2xl lg:max-w-none lg:px-8 xl:px-20 text-center lg:text-left z-10 order-2 lg:order-1 mt-8 lg:mt-0">
-        <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl font-bold leading-tight">
+        <h1 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight">
             100% Original, 0% Basa-basi.
         </h1>
         <p
@@ -30,7 +30,7 @@
     <div class="flex-1 relative mt-32 lg:mt-0 flex items-center justify-center lg:px-8 xl:px-20 order-1 lg:order-2">
         <!-- Background Circle -->
         <div
-            class="w-72 h-72 md:w-88 md:h-88 lg:w-[35rem] lg:h-[35rem] 
+            class="w-72 h-72 md:w-80 md:h-80 lg:w-[35rem] lg:h-[35rem] 
                     bg-[#A67B5B] rounded-full absolute 
                     -top-12 -right-8 sm:-top-16 sm:-right-10 
                     md:-top-20 md:-right-12 
@@ -39,7 +39,7 @@
 
         <!-- Model Image -->
         <img src="{{ asset('assets/img/herosection_model.png') }}" alt="hero section model"
-            class="relative z-10 w-48 sm:w-56 md:w-64 lg:w-72 xl:w-80 h-auto 
+            class="relative z-10 w-48 sm:w-56 lg:w-72 xl:w-80 h-auto 
                     -mt-8 lg:-mt-12 xl:-mt-24">
     </div>
 </section>
