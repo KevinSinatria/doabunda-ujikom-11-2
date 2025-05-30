@@ -36,6 +36,6 @@ class SignupController extends Controller
             'role' => 'customer',
         ]);
 
-        return redirect()->route('auth.signin');
+        return redirect()->route('general.auth.getsignin');
     }
 }
