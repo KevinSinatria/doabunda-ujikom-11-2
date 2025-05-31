@@ -43,6 +43,8 @@ Route::prefix("auth")->group(function () {
         Route::get('/', [SignupController::class, 'showSignupForm'])->name('general.auth.getsignup');
         Route::post('/', [SignupController::class, 'signup'])->name('general.auth.signup');
     });
+
+    Route::get("/signout", [SigninController::class, "signout"])->name("general.auth.signout");
 });
 
 Route::get("/profile", [ProfileController::class, "index"])->name("general.profile");
@@ -54,28 +56,28 @@ Route::prefix("wishlists")->group(function () {
 });
 
 Route::prefix("admin")->group(function () {
-    Route::get("/dashboard", [DashboardController::class, "index"])->name("admin.dashboard");
+    // Route::get("/", [DashboardController::class, "index"])->name("admin.dashboard");
 
-    Route::prefix("products")->group(function () {
-        Route::get("/", [AdminProductController::class, "index"])->name("admin.products.index");
-        Route::get("/{slug}", [AdminProductController::class, "show"])->name("admin.products.show");
-        Route::get("/create", [AdminProductController::class, "create"])->name("admin.products.create");
-        Route::post("/", [AdminProductController::class, "store"])->name("admin.products.store");
-        Route::get("/{slug}/edit", [AdminProductController::class, "edit"])->name("admin.products.edit");
-        Route::put("/{slug}", [AdminProductController::class, "update"])->name("admin.products.update");
-        Route::delete("/{slug}", [AdminProductController::class, "destroy"])->name("admin.products.destroy");
-        Route::get("/{slug}/grant-permission", [AdminProductController::class, "grantPermission"])->name("admin.products.grant-permission");
-        Route::post("/{slug}/grant-permission", [AdminProductController::class, "grantPermissionPost"])->name("admin.products.grant-permission.post");
-    });
+    // Route::prefix("products")->group(function () {
+    //     Route::get("/", [AdminProductController::class, "index"])->name("admin.products.index");
+    //     Route::get("/{slug}", [AdminProductController::class, "show"])->name("admin.products.show");
+    //     Route::get("/create", [AdminProductController::class, "create"])->name("admin.products.create");
+    //     Route::post("/", [AdminProductController::class, "store"])->name("admin.products.store");
+    //     Route::get("/{slug}/edit", [AdminProductController::class, "edit"])->name("admin.products.edit");
+    //     Route::put("/{slug}", [AdminProductController::class, "update"])->name("admin.products.update");
+    //     Route::delete("/{slug}", [AdminProductController::class, "destroy"])->name("admin.products.destroy");
+    //     Route::get("/{slug}/grant-permission", [AdminProductController::class, "grantPermission"])->name("admin.products.grant-permission");
+    //     Route::post("/{slug}/grant-permission", [AdminProductController::class, "grantPermissionPost"])->name("admin.products.grant-permission.post");
+    // });
 
-    Route::prefix("customers")->group(function () {
-        Route::get("/", [AdminCustomerController::class, "index"])->name("admin.customers.index");
-        Route::get("/{id}", [AdminCustomerController::class, "show"])->name("admin.customers.show");
-        Route::get("/create", [AdminCustomerController::class, "create"])->name("admin.customers.create");
-        Route::post("/", [AdminCustomerController::class, "store"])->name("admin.customers.store");
-        Route::get("/{id}/edit", [AdminCustomerController::class, "edit"])->name("admin.customers.edit");
-        Route::put("/{id}", [AdminCustomerController::class, "update"])->name("admin.customers.update");
-        Route::delete("/{id}", [AdminCustomerController::class, "destroy"])->name("admin.customers.destroy");
-    });
+    // Route::prefix("customer-users")->group(function () {
+    //     Route::get("/", [AdminCustomerController::class, "index"])->name("admin.customers.index");
+    //     Route::get("/{id}", [AdminCustomerController::class, "show"])->name("admin.customers.show");
+    //     Route::get("/create", [AdminCustomerController::class, "create"])->name("admin.customers.create");
+    //     Route::post("/", [AdminCustomerController::class, "store"])->name("admin.customers.store");
+    //     Route::get("/{id}/edit", [AdminCustomerController::class, "edit"])->name("admin.customers.edit");
+    //     Route::put("/{id}", [AdminCustomerController::class, "update"])->name("admin.customers.update");
+    //     Route::delete("/{id}", [AdminCustomerController::class, "destroy"])->name("admin.customers.destroy");
+    // });
 });
 

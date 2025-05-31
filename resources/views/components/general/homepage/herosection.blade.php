@@ -1,5 +1,5 @@
-<section
-    id="herosection" class="h-screen w-full flex flex-col lg:flex-row items-center justify-center bg-[#FFEAC5] overflow-hidden relative px-4 sm:px-6 lg:px-0">
+<section id="herosection"
+    class="h-screen w-full flex flex-col lg:flex-row items-center justify-center bg-[#FFEAC5] overflow-hidden relative px-4 sm:px-6 lg:px-0">
     <!-- Text Content -->
     <div
         class="flex-1 max-w-2xl lg:max-w-none lg:px-8 xl:px-20 text-center lg:text-left z-10 order-2 lg:order-1 mt-8 lg:mt-0">
@@ -11,19 +11,21 @@
             Kurasi eksklusif barang-barang fashion edgy & pre-loved dari berbagai archive.
             Tanpa refund, tanpa drama. Order via DM atau Shopee.
         </p>
-        <a class="group mt-4 relative inline-flex items-center overflow-hidden rounded-sm bg-[#5C3A1E] px-8 py-3 text-white focus:ring-3 focus:outline-hidden"
-            href="{{ route('general.products.index') }}">
-            <span class="absolute -end-full transition-all group-hover:end-4">
-                <svg class="size-5 shadow-sm rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none"
-                    viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-            </span>
-
-            <span class="text-sm font-medium transition-all group-hover:me-4"> Lihat Koleksi </span>
-        </a>
-        <button href="https://www.instagram.com/doabundaa_/"><i class="ph-fill ph-instagram-logo"></i></button>
+        <div class="flex gap-4 items-center lg:justify-start justify-center">
+            <a class="group mt-4 relative inline-flex items-center overflow-hidden rounded-sm bg-[#5C3A1E] px-8 py-3 text-white focus:ring-3 focus:outline-hidden"
+                href="{{ route('general.products.index') }}">
+                <span class="absolute -end-full transition-all group-hover:end-4">
+                    <svg class="size-5 shadow-sm rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                </span>
+    
+                <span class="text-sm font-medium transition-all group-hover:me-4"> Lihat Koleksi </span>
+            </a>
+            <a href="https://www.instagram.com/doabundaa_/" class="flex items-center"><i class="ph-fill ph-instagram-logo text-[48px] relative top-2 hover:bg-linear-to-br hover:from-violet-600 hover:via-red-500 hover:to-yellow-500 hover:bg-clip-text hover:text-transparent duration-300 transition-all"></i></a>
+        </div>
     </div>
 
     <!-- Image Content -->
