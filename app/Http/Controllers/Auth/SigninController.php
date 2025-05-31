@@ -31,7 +31,7 @@ class SigninController extends Controller
             $request->session()->regenerate();
 
             if (Auth::user()->role == 'admin') {
-                return redirect()->route('admin.dashboard');
+                return redirect()->route('filament.admin.pages.dashboard');
             } else {
                 return redirect()->route('general.home');
             }
@@ -40,5 +40,10 @@ class SigninController extends Controller
         return back()->withErrors([
             'email' => "Email atau password salah"
         ])->onlyInput('email');
+    }
+
+    public function signout() {
+        Auth::logout();
+        return redirect()->route('general.home');
     }
 }
