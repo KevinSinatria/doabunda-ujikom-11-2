@@ -56,7 +56,7 @@ class ProductResource extends Resource
                     'undo',
                     'redo'
                 ]),
-                TextInput::make('price')->label('Price')->required()->numeric()->prefix('Rp.')->minLength(0),
+                TextInput::make('price')->label('Price')->required()->numeric()->prefix('Rp.'),
                 TextInput::make('stock')->label('Stock')->required()->numeric()->minLength(0),
                 Select::make('category_id')->label('Category')->required()->relationship('category', 'name')->searchable()->preload(),
                 Radio::make('is_featured')->label('Is Featured?')->boolean()->required(),
@@ -72,17 +72,20 @@ class ProductResource extends Resource
     {
         return $table
             ->columns([
+                TextColumn::make('no')->label('#')->sortable()->toggleable(),
                 TextColumn::make('id')->searchable()->sortable(),
                 TextColumn::make('name')->searchable()->toggleable(),
                 TextColumn::make('slug')->searchable()->toggleable(),
-                TextColumn::make('description')->searchable()->toggleable(),
                 TextColumn::make('price')->searchable()->toggleable()->sortable()->money('IDR'),
                 TextColumn::make('stock')->searchable()->toggleable()->sortable(),
                 TextColumn::make('category.name')->label('Category')->searchable()->toggleable(),
                 IconColumn::make('is_featured')->label('Featured')->boolean()->searchable()->toggleable(),
                 ImageColumn::make('images.image_path')->label('Images')->stacked()->square()->toggleable()->defaultImageUrl(url("https://placehold.co/400x400?text=Product+Image")),
-                TextColumn::make('created_at')->dateTime()->sortable()->toggleable(),
-                TextColumn::make('updated_at')->dateTime()->sortable()->toggleable(),
+                TextColumn::make('created_at')->dateTime('d-m-Y H:i', 'Asia/Jakarta')->sortable()->toggleable(),
+                TextColumn::make('updated_at')->dateTime('d-m-Y H:i', 'Asia/Jakarta')->sortable()->toggleable(),
+            ])
+            ->groups([
+                'category.name'
             ])
             ->paginated([
                 5,

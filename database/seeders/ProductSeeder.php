@@ -17,9 +17,9 @@ class ProductSeeder extends Seeder
         $newProducts = Product::factory(150)->create();
 
         foreach ($newProducts as $product) {
-            //     $imageCount = rand(1, 3);
+            $imageCount = rand(1, 3);
 
-            ProductImage::factory()->create([
+            ProductImage::factory($imageCount)->create([
                 'product_id' => $product->id
             ]);
         }
