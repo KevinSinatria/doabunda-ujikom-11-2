@@ -24,6 +24,8 @@ class CustomerUsers extends Page implements HasForms, HasTable
     use InteractsWithForms;
     protected static ?string $navigationIcon = 'heroicon-o-users';
 
+    protected static ?string $navigationGroup = 'Manual Custom Pages';
+
     protected static string $view = 'filament.resources.customer-users.pages.customer-users';
 
     public function table(Table $table): Table
