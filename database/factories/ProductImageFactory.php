@@ -20,7 +20,7 @@ class ProductImageFactory extends Factory
         $product_id = Product::get('id');
         return [
             'product_id' => fake()->randomElement($product_id),
-            'image_path' => 'https://placehold.co/400x400?text=Hello+World',
+            'image_path' => 'assets/images/products/400-400-placeholder.svg',
         ];
     }
 }
