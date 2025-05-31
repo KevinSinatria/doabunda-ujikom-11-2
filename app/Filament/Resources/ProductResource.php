@@ -18,6 +18,7 @@ use Filament\Forms\Form;
 use Filament\Forms\Set;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\IconColumn;
@@ -25,7 +26,9 @@ use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\HtmlString;
 use Illuminate\Support\Str;
 
@@ -37,6 +40,11 @@ class ProductResource extends Resource
     protected static ?string $model = Product::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+
+    public static function getEloquentQuery(): Builder
+    {
+        return parent::getEloquentQuery()->with(['images', 'category']);
+    }
 
     public static function form(Form $form): Form
     {
@@ -72,7 +80,7 @@ class ProductResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('no')->label('#')->sortable()->toggleable(),
+                TextColumn::make('no')->label('#')->rowIndex()->sortable(),
                 TextColumn::make('id')->searchable()->sortable(),
                 TextColumn::make('name')->searchable()->toggleable(),
                 TextColumn::make('slug')->searchable()->toggleable(),
@@ -95,7 +103,6 @@ class ProductResource extends Resource
                 25,
                 30,
                 50,
-                100
             ])
             ->filters([
                 //
@@ -106,7 +113,18 @@ class ProductResource extends Resource
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                    DeleteBulkAction::make()
+                        ->before(function ($records) {
+                            foreach ($records as $record) {
+                                $images = $record->images;
+                                foreach ($images as $image) {
+                                    $is_default = $image->image_path == "assets/images/products/400-400-placeholder.svg";
+                                    if (!$is_default) {
+                                        Storage::disk('public')->delete($image->image_path);
+                                    }
+                                }
+                            }
+                        }),
                 ]),
             ]);
     }
