@@ -37,6 +37,7 @@ class AdminPanelProvider extends PanelProvider
             ->pages([
                 Pages\Dashboard::class,
             ])
+            ->favicon(asset('favicon-admin.png'))
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widget')
             ->widgets([
                 Widgets\AccountWidget::class,
