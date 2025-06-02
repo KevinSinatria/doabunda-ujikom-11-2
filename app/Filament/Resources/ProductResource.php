@@ -51,7 +51,7 @@ class ProductResource extends Resource
         return $form
             ->schema([
                 TextInput::make('name')->label('Name')->required()->helperText(new HtmlString('<strong>Name</strong> minimal 8 karakter'))->minLength(8)->live(onBlur: true)
-                    ->afterStateUpdated(fn(Set $set, ?string $state) => $set('slug', Str::slug($state))),
+                    ->afterStateUpdated(fn(Set $set, ?string $state) => $set('slug', static::createUniqueSlug($state, Product::class))),
                 TextInput::make('slug')->label('Slug')->disabled(true)->dehydrated(true),
                 RichEditor::make('description')->label('Description')->required()->toolbarButtons([
                     'bold',
@@ -144,5 +144,18 @@ class ProductResource extends Resource
             'view' => Pages\ViewProduct::route('/{record}'),
             'edit' => Pages\EditProduct::route('/{record}/edit'),
         ];
+    }
+
+    protected static function createUniqueSlug($beSlug, $model, $column = 'slug')
+    {
+        $slug = Str::slug($beSlug);
+        $originalSlug = $slug;
+        $counter = 1;
+
+        while ($model::where($column, $slug)->exists()) {
+            $slug = $originalSlug . '-' . $counter++;
+        }
+
+        return $slug;
     }
 }
