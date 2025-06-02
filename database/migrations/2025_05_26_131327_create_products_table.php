@@ -15,7 +15,7 @@ return new class extends Migration {
             $table->string("name");
             $table->string("slug");
             $table->text("description");
-            $table->decimal("price");
+            $table->decimal("price", 13, 2);
             $table->integer("stock");
             $table->foreignId("category_id")->constrained("categories")->onDelete("cascade");
             $table->boolean("is_featured")->default(false);

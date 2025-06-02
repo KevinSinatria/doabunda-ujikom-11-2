@@ -52,7 +52,7 @@ Route::get("/profile", [ProfileController::class, "index"])->name("general.profi
 Route::prefix("wishlists")->group(function () {
     Route::get("/", [WishlistController::class, "index"])->name("customer.wishlists.index");
     Route::post("/", [WishlistController::class, "store"])->name("customer.wishlists.store");
-    Route::delete("/{id}", [WishlistController::class, "destroy"])->name("customer.wishlists.destroy");
+    Route::delete("/", [WishlistController::class, "destroy"])->name("customer.wishlists.destroy");
 });
 
 Route::prefix("admin")->group(function () {

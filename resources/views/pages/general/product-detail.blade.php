@@ -2,8 +2,9 @@
 
 @section('title', 'Homepage')
 @section('content')
-    <section class="flex flex-col pt-18 px-12 sm:px-16 md:px-20 lg:px-24">
-        <div class="flex flex-col bg-[#fff2d4] rounded-xl py-4 min-h-112 md:flex-row gap-8 items-center justify-center">
+    {{-- Product Details --}}
+    <section class="flex flex-col pt-18 px-6 sm:px-12 md:px-18 lg:px-24">
+        <div class="flex flex-col bg-[#fff2d4] rounded-xl py-4 px-4 min-h-112 md:flex-row gap-8 items-center justify-center">
             {{-- Product Image --}}
             <div x-data="{ imageSrc: '{{ asset('storage/' . $product->images[0]->image_path) }}' }" class="flex flex-4 flex-col gap-8 justify-center items-center">
                 <div class="w-full flex justify-center items-center">
@@ -38,6 +39,12 @@
                     <h2 class="text-lg font-semibold">Description of Product</h2>
                     <?= $product->description ?>
                 </div>
+                <a class="px-4 py-2 rounded-lg mt-6 gap-2 bg-green-400 flex items-center justify-center text-white hover:bg-green-500 transition-all duration-300"
+                    href="https://wa.me/62895346195409?text=Hi, Saya ingin bertanya tentang produk {{ $product->name }}"
+                    target="_blank">
+                    <i class="ph-duotone ph-whatsapp-logo text-[32px]"></i>
+                    <span>Contact Seller</span>
+                </a>
             </div>
         </div>
 
@@ -46,6 +53,8 @@
 
         </div>
     </section>
+
+    {{-- Other Products --}}
     <section class="flex flex-col justify-center items-center pt-16 gap-4">
         <h1 class="text-2xl font-semibold font-serif">Other Products</h1>
         <div
