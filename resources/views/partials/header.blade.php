@@ -31,7 +31,7 @@
 
             <div>
                 <a href="{{ route('general.products.index') }}" class="relative group cursor-pointer">
-                    Product
+                    Products
                     <span
                         class="absolute bottom-[1px] left-0 w-full h-[1px] bg-gray-800 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-200 ease-in-out z-10"></span>
                 </a>
