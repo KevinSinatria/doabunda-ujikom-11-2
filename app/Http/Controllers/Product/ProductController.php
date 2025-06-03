@@ -20,24 +20,13 @@ class ProductController extends Controller
     public function show($slug)
     {
         $product = Product::with('category', 'images', 'testimonies')->where('slug', $slug)->first();
+        $ratingAvg = $product->testimonies->avg('rating');
         $other_products = Product::all()->whereNotIn('id', $product->id);
 
         return view('pages.general.product-detail', [
             'product' => $product,
-            'other_products' => $other_products
+            'other_products' => $other_products,
+            'ratingAvg' => $ratingAvg
         ]);
-    }
-
-    public function createUniqueSlug($beSlug, $model, $column = 'slug')
-    {
-        $slug = Str::slug($beSlug);
-        $originalSlug = $slug;
-        $counter = 1;
-
-        while ($model::where($column, $slug)->exists()) {
-            $slug = $originalSlug . '-' . $counter++;
-        }
-
-        return $slug;
     }
 }

@@ -47,12 +47,12 @@
     if (headerOther) {
         window.addEventListener('scroll', () => {
             if (window.scrollY > 80) {
-                headerOther.classList.add('lg:mx-12', 'lg:mt-2', 'lg:w-[93%]', 'lg:rounded-full', 'lg:shadow',
+                headerOther.classList.add('lg:mx-12', 'lg:mt-2', 'lg:w-[93%]', 'lg:rounded-full', 'lg:shadow-lg',
                     'lg:border', 'lg:border-gray-400', 'lg:backdrop-blur-2xl');
                 headerOther.classList.remove('lg:backdrop-blur-none', 'lg:shadow-none');
             } else {
                 headerOther.classList.remove('lg:mx-12', 'lg:mt-2', 'lg:w-[93%]', 'lg:rounded-full',
-                    'lg:shadow',
+                    'lg:shadow-lg',
                     'lg:border', 'lg:border-gray-400', 'lg:backdrop-blur-2xl');
                 headerOther.classList.add('lg:backdrop-blur', 'lg:shadow-none');
             }
