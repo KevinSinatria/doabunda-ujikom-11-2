@@ -11,6 +11,10 @@ class WishlistController extends Controller
 {
     public function index()
     {
+        if (!Auth::check()) {
+            return redirect()->route('general.auth.getsignin');
+        }
+
         $user_id = Auth::user()->id;
         $wishlists = Wishlist::with('product')->where('user_id', $user_id)->get();
 
@@ -34,8 +38,10 @@ class WishlistController extends Controller
 
     public function destroy(Request $request)
     {
+        $user_id = Auth::user()->id;
         $product_id = $request->product_id;
-        Wishlist::where('product_id', $product_id)->forceDelete();
+
+        Wishlist::where('product_id', $product_id)->where('user_id', $user_id)->forceDelete();
         return redirect()->back();
     }
 }
