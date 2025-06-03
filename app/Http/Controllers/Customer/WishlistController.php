@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Customer;
 
 use App\Http\Controllers\Controller;
+use App\Models\Product;
 use App\Models\Wishlist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,9 +18,11 @@ class WishlistController extends Controller
 
         $user_id = Auth::user()->id;
         $wishlists = Wishlist::with('product')->where('user_id', $user_id)->get();
+        $other_products = Product::all()->whereNotIn('id', $wishlists->pluck('product_id'));
 
         return view('pages.costumer.wishlist', [
-            'wishlists' => $wishlists
+            'wishlists' => $wishlists,
+            'other_products' => $other_products
         ]);
     }
 
