@@ -35,4 +35,9 @@ class Product extends Model
     {
         return $this->hasMany(Testimony::class, 'product_id', 'id');
     }
+
+    public function wishlists()
+    {
+        return $this->hasMany(Wishlist::class, 'product_id', 'id');
+    }
 }

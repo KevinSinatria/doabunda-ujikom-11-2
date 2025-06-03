@@ -9,8 +9,8 @@
             {{-- Product Card --}}
             @foreach ($products as $product)
                 <a x-data="{ isWishlist: {{ Auth::check() && Auth::user()->role == 'customer' && Auth::user()->wishlists->where('product_id', $product->id)->isNotEmpty() ? 'true' : 'false' }} }" href="{{ route('general.products.show', $product->slug) }}"
-                    class="w-full max-w-60 rounded-xl relative transition-all flex flex-col items-start shadow-none active:shadow-none duration-200 hover:shadow-lg bg-gray-100 overflow-hidden justify-center gap-4">
-                    <img src="{{ asset('storage/' . $product->images[0]->image_path) }}" alt="Product Image" class="w-full">
+                    class="w-full max-w-60 rounded-xl relative transition-all flex flex-col items-start shadow-none active:shadow-none duration-200 hover:shadow-lg h-82 bg-gray-100 overflow-hidden justify-center gap-1">
+                    <img src="{{ asset('storage/' . $product->images[0]->image_path) }}" alt="Product Image" class="object-cover w-full max-h-56">
 
                     <form id="wishlist-form-{{ $product->id }}" action="{{ route('customer.wishlists.store') }}"
                         method="POST">
@@ -19,7 +19,7 @@
                     </form>
 
                     <form id="delete-wishlist-form-{{ $product->id }}" action="{{ route('customer.wishlists.destroy') }}"
-                        action="POST">
+                        method="POST">
                         @csrf
                         @method('delete')
                         <input type="hidden" name="product_id" value="{{ $product->id }}">
@@ -36,10 +36,11 @@
                             class="absolute cursor-pointer top-4 right-4 w-6 h-6">
                     @endif
 
-                    <div class="px-4 pb-4">
-                        <h2>{{ $product->name }}</h2>
-                        <p class="text-red-700">Rp. {{ number_format($product->price, 0, '.', '.') }}</p>
-                        <div class="mt-2 flex items-center gap-1">
+                    {{-- Product Information --}}
+                    <div class="px-4 pb-8">
+                        <h2 class="uppercase leading-snug mb-1">{{ $product->name }}</h2>
+                        <p class="text-red-700"><span class="text-sm">Rp.</span> <span class="text-lg">{{ number_format($product->price, 0, '.', '.') }}</span></p>
+                        <div class="flex items-center gap-1">
                             <img src="{{ asset('assets/vector/star-fill.svg') }}" alt="Stars" class="w-4 h-4">
                             <p class="text-sm text-gray-800">
                                 {{ $product->testimonies->avg('rating') ?? 0 }}

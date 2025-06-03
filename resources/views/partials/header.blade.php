@@ -6,12 +6,12 @@
 <header id="{{ $isHome ? 'header-home' : 'header-other' }}" x-data="{ open: false }"
     x-bind:class="open ? 'bg-[#FFEAC5] lg:bg-transparent' : 'backdrop-blur-2xl'"
     class="fixed w-full top-0 {{ $isHome ? 'lg:backdrop-blur-none hover:mx-12 hover:mt-2 hover:w-[93%] hover:rounded-full hover:shadow hover:border hover:border-gray-400 lg:hover:backdrop-blur' : 'lg:backdrop-blur' }} shadow lg:shadow-none border-b lg:border-b-0 border-b-gray-600 z-50 transition-all duration-300 h-16">
-    <nav class="flex items-center justify-between px-4">
+    <nav class="flex items-center justify-between px-2 md:px-4">
         {{-- left-side --}}
-        <div class="flex gap-4 px-2 items-center py-2">
+        <div class="flex gap-2 md:gap-4 px-2 items-center py-2">
             <img src="{{ asset('assets/img/logo-doa-bunda.jpg') }}" alt="logo doa bunda"
                 class="rounded-full w-12 h-12 border-2 border-gray-500">
-            <h1 class="font-bold text-xl">DoaBunda</h1>
+            <a href="{{ route('general.home') }}" class="font-bold text-xl">DoaBunda</a>
         </div>
 
         {{-- center-side / Desktop Menu --}}
@@ -67,9 +67,19 @@
 
         {{-- right-side --}}
         @if (Auth::check())
-            <div class="flex px-4 justify-center cursor-pointer items-center h-16" x-data="{ userCircleOpen: false }" >
+            <div class="flex px-4 justify-center cursor-pointer items-center h-16" x-data="{ userCircleOpen: false }">
+                @if (Auth::user()->role == 'customer')
+                    <a title="Wishlists" class="mr-4 relative" href="{{ route('customer.wishlists.index') }}">
+                        <i class="ph-duotone ph-heart-straight text-[32px]"></i>
+                        @if (Auth::user()->wishlists->count() > 0)
+                            <span
+                                class="absolute top-0 left-5 text-[12px] w-4 h-4 rounded-full animate-bounce bg-red-500 text-white flex justify-center items-center">{{ Auth::user()->wishlists->count() }}</span>
+                        @endif
+                    </a>
+                @endif
+
                 {{-- User dropdown toggle --}}
-                <div class="flex items-center gap-2" x-on:click="userCircleOpen = !userCircleOpen">
+                <div title="User Info" class="flex items-center gap-2" x-on:click="userCircleOpen = !userCircleOpen">
                     <div class="h-11 w-11 flex justify-center items-center rounded-full bg-[#FFD369]/70 border">
                         <i class="ph-fill ph-user-circle text-[48px]"></i>
                     </div>
