@@ -4,7 +4,7 @@
 @endphp
 {{-- Homepages only with hover effect if scrollY is lower than 80px --}}
 <header id="{{ $isHome ? 'header-home' : 'header-other' }}" x-data="{ open: false }"
-    x-bind:class="open ? 'bg-[#FFEAC5] lg:bg-transparent' : 'backdrop-blur-2xl'"
+    data-aos="fade-down" x-bind:class="open ? 'bg-[#FFEAC5] lg:bg-transparent' : 'backdrop-blur-2xl'"
     class="fixed w-full top-0 {{ $isHome ? 'lg:backdrop-blur-none hover:mx-12 hover:mt-2 hover:w-[93%] hover:rounded-full hover:shadow hover:border hover:border-gray-400 lg:hover:backdrop-blur' : 'lg:backdrop-blur' }} shadow lg:shadow-none border-b lg:border-b-0 border-b-gray-600 z-50 transition-all duration-300 h-16">
     <nav class="flex items-center justify-between px-2 md:px-4">
         {{-- left-side --}}

@@ -1,6 +1,6 @@
 <section class="flex flex-col pt-18 px-6 sm:px-12 md:px-18 lg:px-24">
-    <div
-        class="flex flex-col bg-[#fff2d4] shadow-lg rounded-xl py-4 px-4 min-h-112 md:flex-row gap-8 items-center justify-center">
+    <div class="flex flex-col bg-[#fff2d4] shadow-lg relative rounded-xl py-4 px-4 min-h-112 md:flex-row gap-8 items-center justify-center"
+        x-data="{ isWishlist: {{ Auth::check() && Auth::user()->role == 'customer' && $isWishlist ? 'true' : 'false' }} }">
         {{-- Product Image --}}
         <div x-data="{ imageSrc: '{{ asset('storage/' . $product->images[0]->image_path) }}' }" class="flex flex-4 flex-col gap-8 justify-center items-center">
             <div class="w-full flex justify-center items-center">
@@ -42,6 +42,29 @@
                 <span>Contact Seller</span>
             </a>
         </div>
+
+        <form id="wishlist-form-{{ $product->id }}" action="{{ route('customer.wishlists.store') }}" method="POST">
+            @csrf
+            <input type="hidden" name="product_id" value="{{ $product->id }}">
+        </form>
+
+        <form id="delete-wishlist-form-{{ $product->id }}" action="{{ route('customer.wishlists.destroy') }}"
+            method="POST">
+            @csrf
+            @method('delete')
+            <input type="hidden" name="product_id" value="{{ $product->id }}">
+        </form>
+
+        @if (Auth::check() && Auth::user()->role == 'customer')
+            <img x-show="!isWishlist"
+                x-on:click="isWishlist = true; document.getElementById('wishlist-form-{{ $product->id }}').submit()"
+                src="{{ asset('assets/vector/heart-straight.svg') }}" alt="Add to Wishlist"
+                class="absolute cursor-pointer top-4 right-4 w-6 h-6">
+            <img x-show="isWishlist"
+                x-on:click="isWishlist = false; document.getElementById('delete-wishlist-form-{{ $product->id }}').submit()"
+                src="{{ asset('assets/vector/heart-straight-fill.svg') }}" alt="Add to Wishlist"
+                class="absolute cursor-pointer top-4 right-4 w-6 h-6">
+        @endif
     </div>
 
     {{-- Testimonies --}}
@@ -61,10 +84,13 @@
                     'size' => '24px',
                 ])
             </div>
+            <div>
+
+            </div>
         </div>
 
         <div class="w-full flex flex-col divide-y divide-solid divide-[#cba67e] mt-8 gap-8">
-            @foreach ($product->testimonies as $testimony)
+            @foreach ($testimonies as $testimony)
                 <div class="flex w-full pb-8 gap-2 items-start">
                     <div><i class="ph-fill ph-user-circle text-[48px]"></i></div>
                     <div>
@@ -81,6 +107,9 @@
                     </div>
                 </div>
             @endforeach
+            <div class="px-4 py-4 rounded-xl bg-[#f5d689]">
+                {{ $testimonies->links('pagination::tailwind') }}
+            </div>
         </div>
     </div>
 </section>

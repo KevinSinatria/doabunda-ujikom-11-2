@@ -5,6 +5,7 @@ import "@phosphor-icons/web/bold";
 import "@phosphor-icons/web/fill";
 import "@phosphor-icons/web/duotone";
 import "@phosphor-icons/web/regular";
+import AOS from 'aos';
 
 import.meta.glob([
   '../fonts/**',
@@ -13,3 +14,5 @@ import.meta.glob([
 window.Alpine = Alpine;
 
 Alpine.start();
+
+AOS.init();
