@@ -22,7 +22,7 @@ class ProductController extends Controller
             $search = $request->search;
             $products->where('name', 'like', '%' . $search . '%');
         }
-
+        
         return view('pages.general.product', [
             'products' => $products->paginate(20),
             'search' => $search
@@ -33,9 +33,10 @@ class ProductController extends Controller
     {
         $product = Product::with('category', 'images', 'testimonies')->where('slug', $slug)->first();
         $ratingAvg = $product->testimonies->avg('rating');
-        $other_products = Product::with('category', 'images')->whereNotIn('id', [$product->id])->paginate(20);
+        $other_products = Product::with('category', 'images')->whereNotIn('id', [$product->id])->latest()->paginate(20);
         $isWishlist = false;
-        $testimonies = Testimony::with('user')->where('product_id', $product->id)->paginate(3);
+        $testimonies = Testimony::with('user')->where('product_id', $product->id)->latest()->paginate(3);
+        $isTestimonyAllowed = Auth::check() && Auth::user()->role == 'customer' && Auth::user()->testimonyPermissions->where('product_id', $product->id)->count() > 0 && Auth::user()->testimonyPermissions->where('product_id', $product->id)->pluck('is_used')->where('is_used', 0)->count() > 0;
 
         if (Auth::check()) {
             $isWishlist = Auth::user()->wishlists->where('product_id', $product->id)->isNotEmpty();
@@ -46,7 +47,8 @@ class ProductController extends Controller
             'other_products' => $other_products,
             'ratingAvg' => $ratingAvg,
             'isWishlist' => $isWishlist,
-            'testimonies' => $testimonies
+            'testimonies' => $testimonies,
+            'isTestimonyAllowed' => $isTestimonyAllowed
         ]);
     }
 }
