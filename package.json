@@ -16,6 +16,7 @@
     },
     "dependencies": {
         "@phosphor-icons/web": "^2.1.2",
-        "alpinejs": "^3.14.9"
+        "alpinejs": "^3.14.9",
+        "aos": "^2.3.4"
     }
 }

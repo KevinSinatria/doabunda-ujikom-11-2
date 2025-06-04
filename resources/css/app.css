@@ -7,6 +7,7 @@
 @source "./resources/js/**/*.js";
 @source "./app/View/Components/**/*.php";
 @source "./storage/framework/views/*.php";
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 
 @theme {
     --font-sans: Figtree, ui-sans-serif, system-ui, sans-serif,
