@@ -2,8 +2,8 @@
 
 namespace App\Providers\Filament;
 
-use App\Http\Middleware\AdminMiddleware;
 use App\Http\Middleware\AuthMiddleware;
+use App\Http\Middleware\CustomerMiddleware;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -14,8 +14,6 @@ use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
 use Filament\Widgets;
-use Filament\Widgets\ChartWidget;
-use Illuminate\Auth\Middleware\Authenticate as MiddlewareAuthenticate;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
@@ -23,27 +21,24 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 
-class AdminPanelProvider extends PanelProvider
+class CustomerPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {
         return $panel
-            ->default()
-            ->id('admin')
-            ->path('admin')
+            ->id('customer')
+            ->path('user')
             ->colors([
                 'primary' => Color::Amber,
             ])
-            ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
-            ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
+            ->discoverResources(in: app_path('Filament/Customer/Resources'), for: 'App\\Filament\\Customer\\Resources')
+            ->discoverPages(in: app_path('Filament/Customer/Pages'), for: 'App\\Filament\\Customer\\Pages')
             ->pages([
                 Pages\Dashboard::class,
             ])
-            ->favicon(asset('favicon-admin.png'))
-            ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widget')
+            ->discoverWidgets(in: app_path('Filament/Customer/Widgets'), for: 'App\\Filament\\Customer\\Widgets')
             ->widgets([
                 Widgets\AccountWidget::class,
-                // Widgets\FilamentInfoWidget::class,
             ])
             ->middleware([
                 EncryptCookies::class,
@@ -58,18 +53,14 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 AuthMiddleware::class,
-                AdminMiddleware::class
+                CustomerMiddleware::class
             ])
-            ->unsavedChangesAlerts()
             ->navigationItems([
                 NavigationItem::make('Home')
                     ->url(fn(): string => route('general.home'))
                     ->icon('heroicon-o-home-modern')
                     ->group('General Access Pages'),
             ])
-            ->font('Poppins')
-            ->brandName('DoaBunda Admin')
-            ->brandLogo(asset('logo-doa-bunda-admin.svg'))
-            ->brandLogoHeight('4rem');
+            ->font('Poppins');
     }
 }

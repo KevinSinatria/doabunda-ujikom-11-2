@@ -94,7 +94,7 @@
     @else
         @if (request()->routeIs('general.products.index'))
             <div class="w-full flex flex-col items-center justify-center gap-4">
-                <img class="w-80" src="{{ asset('assets/vector/undraw_file-search_cbur.svg') }}"
+                <img class="w-80 drop-shadow-lg" src="{{ asset('assets/vector/undraw_file-search_cbur.svg') }}"
                     alt="Not Found Products Vector">
                 <p class="text-2xl text-center md:text-3xl lg:text-4xl font-semibold">Product yang kamu cari gak ketemu
                     nih!
