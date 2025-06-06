@@ -7,8 +7,10 @@
             class="flex bg-[#fff8eb] w-sm sm:w-md md:w-lg lg:w-xl xl:w-2xl rounded-xl shadow-lg flex-col px-6 py-6">
             @csrf
             {{-- Header of form --}}
-            <div class="flex justify-center items-center w-full">
-                <h1 class="uppercase text-xl font-semibold">Sign In</h1>
+            <div class="flex flex-col gap-2 justify-center items-center w-full">
+                <img src="{{ asset('favicon.png') }}" alt="logo-doa-bunda" class="w-12 h-12">
+                <h1 class="text-2xl font-semibold">Sign In ke DoaBunda</h1>
+                <p class="text-gray-700">Selamat datang kembali di DoaBunda!</p>
             </div>
 
             {{-- Main content of form --}}

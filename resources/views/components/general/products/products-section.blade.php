@@ -3,7 +3,7 @@
 
 
     @if (request()->routeIs('general.products.index'))
-        <form x-ref="searchFrom" x-data="{ value: '{{ $search ?? '' }}' }" x-on:input.debounce.500="$event.target.form.submit()"
+        <form x-ref="searchForm" x-data="{ value: '{{ $search ?? '' }}' }" x-on:input.debounce.500="$event.target.form.submit()"
             method="GET" class="max-w-sm sm:max-w-lg md:max-w-xl lg:max-w-2xl relative mx-12 w-full">
             <label for="default-search"
                 class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
@@ -19,7 +19,7 @@
                     class="block w-full p-4 ps-10 text-sm transition-all focus:shadow-lg outline-none text-gray-900 border border-gray-300 rounded-lg bg-gray-50"
                     placeholder="Search Products..." />
                 @if ($search !== '')
-                    <i x-on:click="value = ''; setTimeout(() => $refs.searchFrom.submit(), 100);"
+                    <i x-on:click="value = ''; setTimeout(() => $refs.searchForm.submit(), 100);"
                         class="ph ph-x text-lg absolute top-4 right-26 cursor-pointer hover:text-[#bd8c22]"></i>
                 @endif
                 <button type="submit"
@@ -39,7 +39,7 @@
                     isInStock: {{ $product->stock > 0 ? 'true' : 'false' }}
                 }" href="{{ route('general.products.show', $product->slug) }}"
                     class="w-full max-w-60 rounded-xl relative transition-all flex flex-col items-start shadow-none active:shadow-none duration-200 hover:shadow-lg bg-gray-100 overflow-hidden justify-center gap-1">
-                    <img src="{{ asset('storage/' . $product->images[0]->image_path) }}" alt="Product Image"
+                    <img src="{{ asset('storage/' . $product->images[0]->image_path) }}" loading="lazy" alt="Product Image"
                         class="object-cover w-full h-56">
 
                     <p x-bind:class="isInStock ? 'bg-green-600 top-6 -left-12' : 'bg-red-600 top-6 -left-12'"

@@ -89,7 +89,7 @@
         @if ($isTestimonyAllowed)
             <form
                 class="flex flex-col justify-center rounded-xl shadow-lg items-center py-8 px-4 md:px-8 w-full bg-white"
-                method="POST" action="{{ route('customer.testimonies.store', ['slug' => $product->slug]) }}">
+                method="POST" enctype="multipart/form-data" action="{{ route('customer.testimonies.store', ['slug' => $product->slug]) }}">
                 <h1 class="text-xl font-semibold">Berikan Testimoni!</h1>
                 <p class="text-center text-sm text-gray-600">Berikan testimoni tentang produk ini berdasarkan
                     pengalamanmu selama
@@ -151,7 +151,7 @@
                     </div>
                     <img id="previewImage" alt="Image Preview"
                         class="max-w-full max-h-full absolute top-0 left-0 w-full h-full object-contain hidden rounded-lg">
-                    <input id="file" type="file" accept="image/*" />
+                    <input id="file" name="image" type="file" accept="image/*" />
                 </label>
 
                 <button type="submit"
