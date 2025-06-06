@@ -36,7 +36,7 @@ class ProductController extends Controller
         $other_products = Product::with('category', 'images')->whereNotIn('id', [$product->id])->latest()->paginate(20);
         $isWishlist = false;
         $testimonies = Testimony::with('user')->where('product_id', $product->id)->latest()->paginate(3);
-        $isTestimonyAllowed = Auth::check() && Auth::user()->role == 'customer' && Auth::user()->testimonyPermissions->where('product_id', $product->id)->count() > 0 && Auth::user()->testimonyPermissions->where('product_id', $product->id)->pluck('is_used')->where('is_used', 0)->count() == 0;
+        $isTestimonyAllowed = Auth::check() && Auth::user()->role == 'customer' && Auth::user()->testimonyPermissions->where('product_id', $product->id)->count() > 0 && Auth::user()->testimonyPermissions->where('product_id', $product->id)->where('is_used', 0)->count() > 0;
 
         if (Auth::check()) {
             $isWishlist = Auth::user()->wishlists->where('product_id', $product->id)->isNotEmpty();

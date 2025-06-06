@@ -56,6 +56,7 @@ Route::prefix("wishlists")->group(function () {
 });
 
 Route::prefix("admin")->group(function () {
+    Route::post('/logout', [SigninController::class, 'signout'])->name('filament.admin.auth.logout');
     // Route::get("/", [DashboardController::class, "index"])->name("admin.dashboard");
 
     // Route::prefix("products")->group(function () {

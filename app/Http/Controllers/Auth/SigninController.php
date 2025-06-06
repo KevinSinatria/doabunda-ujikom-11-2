@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use Filament\Notifications\Notification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use SweetAlert2\Laravel\Swal;
 
 class SigninController extends Controller
 {
@@ -31,19 +33,37 @@ class SigninController extends Controller
             $request->session()->regenerate();
 
             if (Auth::user()->role == 'admin') {
+                Notification::make()
+                    ->title('Berhasil login!')
+                    ->body('Selamat datang admin ' . Auth::user()->username . '!')
+                    ->success()
+                    ->send();
                 return redirect()->route('filament.admin.pages.dashboard');
             } else {
+                session()->flash('show_toast', [
+                    'type' => 'success',
+                    'title' => 'Selamat datang ' . Auth::user()->username . '!'
+                ]);
                 return redirect()->route('general.home');
             }
         }
 
-        return back()->withErrors([
-            'email' => "Email atau password salah"
-        ])->onlyInput('email');
+        return redirect()->back()->with('show_toast', [
+            'type' => 'error',
+            'title' => 'Username atau password salah!'
+        ]);
     }
 
-    public function signout() {
+    public function signout()
+    {
         Auth::logout();
+        session()->flash('show_toast', [
+            'type' => 'success',
+            'title' => 'Berhasil logout!',
+            'duration' => 1500
+        ]);
+
         return redirect()->route('general.home');
     }
+
 }

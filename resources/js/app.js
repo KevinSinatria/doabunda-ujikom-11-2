@@ -6,12 +6,14 @@ import "@phosphor-icons/web/fill";
 import "@phosphor-icons/web/duotone";
 import "@phosphor-icons/web/regular";
 import AOS from 'aos';
+import Swal from "sweetalert2";
 
 import.meta.glob([
   '../fonts/**',
 ]);
 
 window.Alpine = Alpine;
+window.Swal = Swal;
 
 Alpine.start();
 
