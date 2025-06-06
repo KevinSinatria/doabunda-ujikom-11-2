@@ -54,14 +54,16 @@
     if (headerHome) {
         window.addEventListener('scroll', () => {
             if (window.scrollY > 80) {
-                headerHome.classList.add('lg:mx-12', 'lg:mt-2', 'lg:w-[93%]', 'lg:rounded-full', 'lg:shadow',
+                headerHome.classList.add('lg:mx-12', 'lg:bg-white/20', 'lg:mt-2', 'lg:w-[93%]',
+                    'lg:rounded-full', 'lg:shadow',
                     'lg:border', 'lg:border-gray-400', 'lg:backdrop-blur-2xl');
                 headerHome.classList.remove('lg:backdrop-blur-none', 'lg:shadow-none', 'hover:mx-12',
                     'hover:mt-2',
                     'hover:w-[93%]', 'hover:rounded-full', 'hover:shadow', 'hover:border',
                     'hover:border-gray-400', 'lg:hover:backdrop-blur');
             } else {
-                headerHome.classList.remove('lg:mx-12', 'lg:mt-2', 'lg:w-[93%]', 'lg:rounded-full', 'lg:shadow',
+                headerHome.classList.remove('lg:mx-12', 'lg:bg-white/20', 'lg:mt-2', 'lg:w-[93%]',
+                    'lg:rounded-full', 'lg:shadow',
                     'lg:border', 'lg:border-gray-400', 'lg:backdrop-blur-2xl');
                 headerHome.classList.add('lg:backdrop-blur-none', 'lg:shadow-none', 'hover:mx-12', 'hover:mt-2',
                     'hover:w-[93%]', 'hover:rounded-full', 'hover:shadow', 'hover:border',
@@ -73,11 +75,13 @@
     if (headerOther) {
         window.addEventListener('scroll', () => {
             if (window.scrollY > 80) {
-                headerOther.classList.add('lg:mx-12', 'lg:mt-2', 'lg:w-[93%]', 'lg:rounded-full', 'lg:shadow-lg',
+                headerOther.classList.add('lg:mx-12', 'lg:bg-white/20', 'lg:mt-2', 'lg:w-[93%]',
+                    'lg:rounded-full', 'lg:shadow-lg',
                     'lg:border', 'lg:border-gray-400', 'lg:backdrop-blur-2xl');
                 headerOther.classList.remove('lg:backdrop-blur-none', 'lg:shadow-none');
             } else {
-                headerOther.classList.remove('lg:mx-12', 'lg:mt-2', 'lg:w-[93%]', 'lg:rounded-full',
+                headerOther.classList.remove('lg:mx-12', 'lg:bg-white/20', 'lg:mt-2', 'lg:w-[93%]',
+                    'lg:rounded-full',
                     'lg:shadow-lg',
                     'lg:border', 'lg:border-gray-400', 'lg:backdrop-blur-2xl');
                 headerOther.classList.add('lg:backdrop-blur', 'lg:shadow-none');

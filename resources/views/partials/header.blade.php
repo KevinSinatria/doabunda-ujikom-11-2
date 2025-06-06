@@ -70,40 +70,40 @@
             <div class="flex px-4 justify-center cursor-pointer items-center h-16" x-data="{ userCircleOpen: false }">
                 @if (Auth::user()->role == 'customer')
                     <a title="Wishlists" class="mr-4 relative" href="{{ route('customer.wishlists.index') }}">
-                        <i class="ph-duotone ph-heart-straight text-[32px]"></i>
+                        <i class="ph-duotone ph-heart-straight shadow-lg hover:shadow-none hover:bg-gray-200 transition-all bg-gray-100 p-1 rounded-full text-[28px]"></i>
                         @if (Auth::user()->wishlists->count() > 0)
                             <span
-                                class="absolute top-0 left-5 text-[12px] w-4 h-4 rounded-full animate-bounce bg-red-500 text-white flex justify-center items-center">{{ Auth::user()->wishlists->count() }}</span>
+                                class="absolute -top-1 left-6 text-[12px] w-4 h-4 rounded-full animate-bounce bg-red-500 text-white flex justify-center items-center">{{ Auth::user()->wishlists->count() }}</span>
                         @endif
                     </a>
                 @endif
 
                 {{-- User dropdown toggle --}}
                 <div title="User Info" class="flex items-center gap-2" x-on:click="userCircleOpen = !userCircleOpen">
-                    <div class="h-11 w-11 flex justify-center items-center rounded-full bg-[#FFD369]/70 border">
-                        <i class="ph-fill ph-user-circle text-[48px]"></i>
+                    <div class="h-11 w-11 flex justify-center items-center rounded-full bg-gray-100 border">
+                        <i class="ph-duotone ph-user-circle text-[48px]"></i>
                     </div>
-                    <i class="ph-bold ph-caret-down transition-all bg-[#FFD369]/70 rounded-full duration-300 border border-gray-600"
+                    <i class="ph-bold ph-caret-down transition-all bg-gray-100 rounded-full duration-300 border border-gray-600"
                         x-bind:class="userCircleOpen ? 'rotate-180' : ''"></i>
                 </div>
 
                 {{-- Only user dropdown --}}
                 <div x-show="userCircleOpen" x-transition.origin.top.duration.300
-                    class="fixed shadow-xl bg-[#FFD369] top-16 right-0 overflow-hidden flex flex-col items-center w-60 rounded-lg z-50">
+                    class="fixed shadow-xl bg-white top-16 right-0 overflow-hidden flex flex-col items-center w-60 rounded-lg z-1000">
                     @if (Auth::user()->role == 'admin')
                         <a href="{{ route('filament.admin.pages.dashboard') }}"
-                            class="py-3 w-full text-center hover:bg-[#dabd73] cursor-pointer">
+                            class="py-3 w-full text-center hover:bg-gray-200 cursor-pointer">
                             <i class="ph-bold ph-house"></i>
                             Dashboard
                         </a>
                     @endif
                     <a href="{{ route('filament.admin.pages.dashboard') }}"
-                        class="py-3 w-full text-center hover:bg-[#dabd73] cursor-pointer">
+                        class="py-3 w-full text-center hover:bg-gray-200 cursor-pointer">
                         <i class="ph-bold ph-user"></i>
                         User Profile
                     </a>
                     <a href="{{ route('general.auth.signout') }}"
-                        class="py-3 w-full text-center hover:bg-[#dabd73] text-red-500 cursor-pointer">
+                        class="py-3 w-full text-center hover:bg-gray-200 text-red-500 cursor-pointer">
                         <i class="ph-bold ph-sign-out"></i>
                         Sign Out
                     </a>
