@@ -14,11 +14,37 @@
 </head>
 
 <body class="font-poppins overflow-x-hidden">
+    @include('sweetalert2::index')
     @include('partials.header')
     <main class="bg-[#FFEAC5]">
         @yield('content')
     </main>
     @include('partials.footer')
+    @if (session('show_toast'))
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                @php
+                    $toast = session('show_toast');
+                @endphp
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    width: 'auto',
+                    showConfirmButton: false,
+                    timer: {{ $toast['duration'] ?? 3000 }},
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                })
+                Toast.fire({
+                    icon: '{{ $toast['type'] }}',
+                    title: '{{ $toast['title'] }}'
+                })
+            })
+        </script>
+    @endif
 </body>
 
 <script>

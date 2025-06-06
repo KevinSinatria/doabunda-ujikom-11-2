@@ -7,6 +7,7 @@ use App\Models\Testimony;
 use App\Models\TestimonyPermission;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Spatie\LaravelImageOptimizer\Facades\ImageOptimizer;
 
 class TestimonyController extends Controller
 {
@@ -28,14 +29,13 @@ class TestimonyController extends Controller
             // Auto generate filename
             $filename = $request->file('image')->hashName() . '.' . $request->file('image')->getClientOriginalExtension();
             $imagePath = $request->file('image')->storeAs('assets/images/testimonies', $filename, 'public');
+            ImageOptimizer::optimize(public_path('storage/' . $imagePath));
         }
 
         $product = Product::where('slug', $slug)->first();
         $testimonyPermission = TestimonyPermission::where('product_id', $product->id)->where('user_id', Auth::user()->id)->first();
 
-        dd($testimonyPermission);
-
-        Testimony::create([
+        $newTestimony = Testimony::create([
             'product_id' => $product->id,
             'user_id' => Auth::user()->id,
             'rating' => $request->rate,
@@ -44,10 +44,21 @@ class TestimonyController extends Controller
             'is_featured' => 0
         ]);
 
-        $testimonyPermission->update([
-            'is_used' => 1
-        ]);
+        if ($newTestimony) {
+            $testimonyPermission->update([
+                'is_used' => 1
+            ]);
+            return redirect()->back()->with('show_toast', [
+                'type' => 'success',
+                'title' => 'Thank You! Testimoni berhasil dikirim!',
+                'duration' => 2000
+            ]);
+        }
 
-        return redirect()->back()->with('success', 'Testimoni berhasil dikirim');
+        return redirect()->back()->with('show_toast', [
+            'type' => 'error',
+            'title' => 'Testimoni gagal dikirim!',
+            'duration' => 1500
+        ]);
     }
 }

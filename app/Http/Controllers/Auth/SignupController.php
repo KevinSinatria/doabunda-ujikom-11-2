@@ -22,18 +22,40 @@ class SignupController extends Controller
         return view('auth.signup');
     }
 
-    public function signup(Request $request) {
+    public function signup(Request $request)
+    {
         $credentials = $request->validate([
             'username' => 'required',
-            'email' => 'required|email|unique:users',
+            'email' => 'required|email',
             'password' => 'required'
         ]);
+
+        if (User::where('username', $request->username)->exists()) {
+            session()->flash('show_toast', [
+                'type' => 'error',
+                'title' => 'Username sudah terdaftar'
+            ]);
+            return redirect()->back();
+        }
+
+        if (User::where('email', $request->email)->exists()) {
+            session()->flash('show_toast', [
+                'type' => 'error',
+                'title' => 'Email sudah terdaftar'
+            ]);
+            return redirect()->back();
+        }
 
         User::create([
             'username' => $credentials['username'],
             'email' => $credentials['email'],
             'password' => bcrypt($credentials['password']),
             'role' => 'customer',
+        ]);
+
+        session()->flash('show_toast', [
+            'type' => 'success',
+            'title' => 'Berhasil daftar! Silahkan signin!'
         ]);
 
         return redirect()->route('general.auth.getsignin');

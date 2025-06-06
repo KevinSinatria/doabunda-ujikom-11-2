@@ -61,11 +61,11 @@
 
                     @if (Auth::check() && Auth::user()->role == 'customer')
                         <img x-show="!isWishlist"
-                            x-on:click="isWishlist = true; document.getElementById('wishlist-form-{{ $product->id }}').submit()"
+                            x-on:click.stop.prevent="isWishlist = true; document.getElementById('wishlist-form-{{ $product->id }}').submit()"
                             src="{{ asset('assets/vector/heart-straight.svg') }}" alt="Add to Wishlist"
                             class="absolute cursor-pointer top-4 right-4 w-6 h-6">
                         <img x-show="isWishlist"
-                            x-on:click="isWishlist = false; document.getElementById('delete-wishlist-form-{{ $product->id }}').submit()"
+                            x-on:click.stop.prevent="isWishlist = false; document.getElementById('delete-wishlist-form-{{ $product->id }}').submit()"
                             src="{{ asset('assets/vector/heart-straight-fill.svg') }}" alt="Add to Wishlist"
                             class="absolute cursor-pointer top-4 right-4 w-6 h-6">
                     @endif
