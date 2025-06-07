@@ -2,7 +2,7 @@
 
 @section('title', 'My Profile')
 @section('content')
-    @include('components.general.profile.my-profile-section', [
+    @include('components.general.profile.profile-customer-section', [
         'user' => $user,
     ])
     @if (Auth::user()->role == 'customer')

@@ -22,7 +22,6 @@
         </div>
 
         <div class="flex flex-1 flex-col gap-6 justify-center items-center relative z-10">
-            {{-- <div class="absolute inset-0 bg-[#FFAB00] rounded-full blur-lg opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div> --}}
             <i
                 class="ph ph-user text-[72px] bg-white rounded-full p-8 shadow-lg relative z-10 group-hover:scale-105 transition-transform duration-300"></i>
             <button x-on:click="isEdit = !isEdit" x-text="isEdit ? 'Cancel' : 'Edit Profile'"
@@ -30,6 +29,9 @@
                 class="w-full px-4 py-2 rounded-lg text-white font-medium shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5">
                 Edit Profile
             </button>
+            <a class="w-full bg-red-500 flex gap-4 justify-center items-center px-4 py-2 rounded-lg text-white font-medium shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5" href="{{ route('general.auth.signout') }}">
+                <i class="ph ph-sign-out text-[24px]"></i><span>Sign Out</span>
+            </a>
         </div>
 
         <div class="flex flex-2 w-full flex-col px-4 lg:px-8 py-4 lg:py-8 justify-center items-center relative z-10">
