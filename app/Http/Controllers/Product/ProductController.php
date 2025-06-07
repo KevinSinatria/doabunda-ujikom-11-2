@@ -17,10 +17,16 @@ class ProductController extends Controller
     {
         $products = Product::with('category', 'images', 'testimonies')->latest();
         $search = '';
+        $filterCategory = '';
 
         if ($request->search) {
             $search = $request->search;
             $products->where('name', 'like', '%' . $search . '%');
+        }
+
+        if ($request->filterCategory) {
+            $filterCategory = $request->filterCategory;
+            $products->where('category_id', $filterCategory);
         }
         
         return view('pages.general.product', [

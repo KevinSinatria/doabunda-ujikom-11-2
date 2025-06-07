@@ -18,14 +18,20 @@
 
             {{-- Main content of form --}}
             <div class="flex flex-col  gap-4 mt-6">
-                <input type="email" id="email" name="email" autocomplete="off" placeholder="Email"
-                    class="w-full px-4 py-2 rounded-lg bg-white outline-none shadow-lg focus:shadow-none focus:ring-2 focus:ring-[#fcbb23] transition-all duration-300"
-                    required minlength="8">
-                <small id="email-error"></small>
-                <input type="password" id="password" name="password" autocomplete="off" placeholder="Password"
-                    class="w-full px-4 py-2 rounded-lg bg-white outline-none shadow-lg focus:shadow-none focus:ring-2 focus:ring-[#FFD369] transition-all duration-300"
-                    required>
-                <small id="password-error"></small>
+                <div class="flex flex-col w-full">
+                    <input type="email" id="email" name="email" autocomplete="off" placeholder="Email"
+                        class="w-full px-4 py-2 rounded-lg bg-white outline-none shadow-lg focus:shadow-none focus:ring-2 focus:ring-[#fcbb23] transition-all duration-300"
+                        required minlength="8">
+                    <small id="email-error"></small>
+                </div>
+                <div x-data="{ showPassword: false }" class="flex flex-col w-full relative">
+                    <input x-bind:type="showPassword ? 'text' : 'password'" id="password" name="password" autocomplete="off" placeholder="Password"
+                        class="w-full px-4 py-2 rounded-lg bg-white outline-none shadow-lg focus:shadow-none focus:ring-2 focus:ring-[#FFD369] transition-all duration-300"
+                        required>
+                    <i id="show-password" x-on:click="showPassword = !showPassword" x-show="!showPassword" class="ph ph-eye absolute text-[24px] top-0 right-0 hover:bg-gray-300 transition-all bg-gray-200 px-6 py-2 rounded-tr-lg rounded-br-lg cursor-pointer"></i>
+                    <i id="hide-password" x-on:click="showPassword = !showPassword" x-show="showPassword" class="ph ph-eye-slash absolute text-[24px] top-0 right-0 hover:bg-gray-300 transition-all bg-gray-200 px-6 py-2 rounded-tr-lg rounded-br-lg cursor-pointer"></i>
+                    <small id="password-error"></small>
+                </div>
             </div>
 
             {{-- Footer of form --}}

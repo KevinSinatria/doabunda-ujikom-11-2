@@ -1,31 +1,48 @@
 <section class="flex flex-col justify-center items-center pt-24 lg:pt-16 gap-4">
-    <h1 class="text-2xl font-semibold font-serif">{{ $title }}</h1>
-
+    <h1 class="text-3xl font-semibold">{{ $title }}</h1>
 
     @if (request()->routeIs('general.products.index'))
-        <form x-ref="searchForm" x-data="{ value: '{{ $search ?? '' }}' }" x-on:input.debounce.500="$event.target.form.submit()"
-            method="GET" class="max-w-sm sm:max-w-lg md:max-w-xl lg:max-w-2xl relative mx-12 w-full">
-            <label for="default-search"
-                class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
-            <div class="relative">
-                <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                    <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
-                    </svg>
+        <div x-data="{ filterOpen: false }" class="w-full flex items-center justify-center">
+            <form x-ref="searchForm" x-data="{ value: '{{ $search ?? '' }}' }" x-on:input.debounce.500="$event.target.form.submit()"
+                method="GET" class="max-w-sm sm:max-w-lg md:max-w-xl lg:max-w-2xl relative mx-12 w-full">
+                <label for="default-search"
+                    class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+                <div class="relative">
+                    <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                        <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                        </svg>
+                    </div>
+                    <input type="search" id="default-search" name="search" x-model="value" autocomplete="off"
+                        class="block w-full p-4 ps-10 text-sm transition-all focus:shadow-lg outline-none text-gray-900 border border-gray-300 rounded-lg bg-gray-50"
+                        placeholder="Search Products..." />
+                    @if ($search !== '')
+                        <i x-on:click="value = ''; setTimeout(() => $refs.searchForm.submit(), 100);"
+                            class="ph ph-x text-lg absolute top-4 right-26 cursor-pointer hover:text-[#bd8c22]"></i>
+                    @endif
+                    <button type="submit"
+                        class="text-white absolute end-2.5 bottom-2.5 duration-100 transition-all cursor-pointer hover:shadow-md bg-[#bd8c22] hover:bg-[#dfac3c] focus:ring-4 focus:outline-none outline-0 font-medium rounded-lg text-sm px-4 py-2">Search</button>
                 </div>
-                <input type="search" id="default-search" name="search" x-model="value" autocomplete="off"
-                    class="block w-full p-4 ps-10 text-sm transition-all focus:shadow-lg outline-none text-gray-900 border border-gray-300 rounded-lg bg-gray-50"
-                    placeholder="Search Products..." />
-                @if ($search !== '')
-                    <i x-on:click="value = ''; setTimeout(() => $refs.searchForm.submit(), 100);"
-                        class="ph ph-x text-lg absolute top-4 right-26 cursor-pointer hover:text-[#bd8c22]"></i>
-                @endif
-                <button type="submit"
-                    class="text-white absolute end-2.5 bottom-2.5 duration-100 transition-all cursor-pointer hover:shadow-md bg-[#bd8c22] hover:bg-[#dfac3c] focus:ring-4 focus:outline-none outline-0 font-medium rounded-lg text-sm px-4 py-2">Search</button>
-            </div>
-        </form>
+            </form>
+            <button x-on:click="filterOpen = !filterOpen" class="relative">
+                <i
+                    class="ph ph-funnel text-[28px] absolute -top-[22px] shadow-lg bg-gray-100 hover:bg-gray-200 hover:shadow-md transition-all cursor-pointer p-2 rounded-full -right-3"></i>
+            </button>
+            <form x-show="filterOpen" x-transition.origin.right.duration.300ms
+                class="fixed rounded-xl right-4 top-20 w-96 z-200 h-[80vh] bg-white/60 backdrop-blur-2xl border border-gray-300"
+                action="">
+                <div class="flex justify-between px-4 w-full items-center">
+                    <i class="ph-duotone top-[7px] relative ph-funnel text-[28px]"></i>
+                    <h1 class="text-xl font-semibold mt-4">Filter Products</h1>
+                    <button
+                        class="top-[7px] relative text-2xl cursor-pointer hover:text-[#bd8c22] hover:shadow-lg active:shadow-none p-1 rounded-lg transition-all hover:bg-[#ffeabd]">
+                        <i class="ph-bold ph-x"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
     @endif
 
 
@@ -39,8 +56,8 @@
                     isInStock: {{ $product->stock > 0 ? 'true' : 'false' }}
                 }" href="{{ route('general.products.show', $product->slug) }}"
                     class="w-full max-w-60 rounded-xl relative transition-all flex flex-col items-start shadow-none active:shadow-none duration-200 hover:shadow-lg bg-gray-100 overflow-hidden justify-center gap-1">
-                    <img src="{{ asset('storage/' . $product->images[0]->image_path) }}" loading="lazy" alt="Product Image"
-                        class="object-cover w-full h-56">
+                    <img src="{{ asset('storage/' . $product->images[0]->image_path) }}" loading="lazy"
+                        alt="Product Image" class="object-cover w-full h-56">
 
                     <p x-bind:class="isInStock ? 'bg-green-600 top-6 -left-12' : 'bg-red-600 top-6 -left-12'"
                         class="absolute shadow-xl z-10 text-white font-medium w-full py-2 flex justify-center items-center -rotate-45">

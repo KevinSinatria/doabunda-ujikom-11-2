@@ -29,8 +29,8 @@ const customRegexValidatorWithMessage = (
 const formValidator = (field, requiredMessage, validateHandler = null) => {
     const handleValidation = (event) => {
         customRequiredValidatorWithMessage(event, requiredMessage);
-        
-        if (validateHandler && typeof validateHandler === 'function') {
+
+        if (validateHandler && typeof validateHandler === "function") {
             validateHandler(event);
         }
 
@@ -41,15 +41,61 @@ const formValidator = (field, requiredMessage, validateHandler = null) => {
             `${event.target.id}-error`
         );
         const inputElement = document.getElementById(`${event.target.id}`);
+        const showPassword = document.getElementById(`show-password`);
+        const hidePassword = document.getElementById(`hide-password`);
+        const showPasswordConfirmation = document.getElementById(
+            `show-password-confirmation`
+        );
+        const hidePasswordConfirmation = document.getElementById(
+            `hide-password-confirmation`
+        );
 
         if (errorElement && !isValid && errorMessage) {
             errorElement.textContent = errorMessage;
             errorElement.classList.add("text-red-500");
             inputElement.classList.add("border-2", "border-red-500");
+            if (
+                (showPassword || hidePassword) &&
+                event.target.name === "password"
+            ) {
+                showPassword.classList.add("border-2", "border-red-500");
+                hidePassword.classList.add("border-2", "border-red-500");
+            } else if (
+                (showPasswordConfirmation || hidePasswordConfirmation) &&
+                event.target.name === "password_confirmation"
+            ) {
+                showPasswordConfirmation.classList.add(
+                    "border-2",
+                    "border-red-500"
+                );
+                hidePasswordConfirmation.classList.add(
+                    "border-2",
+                    "border-red-500"
+                );
+            }
         } else {
             errorElement.textContent = "";
             errorElement.classList.remove("text-red-500");
             inputElement.classList.remove("border-2", "border-red-500");
+            if (
+                (showPassword || hidePassword) &&
+                event.target.name === "password"
+            ) {
+                showPassword.classList.remove("border-2", "border-red-500");
+                hidePassword.classList.remove("border-2", "border-red-500");
+            } else if (
+                (showPasswordConfirmation || hidePasswordConfirmation) &&
+                event.target.name === "password_confirmation"
+            ) {
+                showPasswordConfirmation.classList.remove(
+                    "border-2",
+                    "border-red-500"
+                );
+                hidePasswordConfirmation.classList.remove(
+                    "border-2",
+                    "border-red-500"
+                ); 
+            }
         }
     };
 

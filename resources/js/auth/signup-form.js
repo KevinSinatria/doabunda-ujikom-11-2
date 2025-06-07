@@ -15,7 +15,7 @@ function validateUsername(event) {
     customRegexValidatorWithMessage(
         event,
         usernameRegex,
-        "Username minimal 8 karakter & tanpa spasi"
+        "Username minimal 8 karakter, tanpa spasi & jangan gunakan karakter unik"
     );
 }
 
@@ -33,26 +33,29 @@ function validatePassword(event) {
     customRegexValidatorWithMessage(
         event,
         passwordRegex,
-        "Password minimal 8 karakter & harus mengandung huruf dan angka"
+        "Password minimal 8 karakter, harus mengandung huruf dan angka"
     );
 }
 
-function validatePasswordConfimation(event) {
+function validatePasswordConfirmation(event) {
+    const el = document.getElementById(`${event.target.id}`);
     const errorElement = document.getElementById(`${event.target.id}-error`);
+    event.target.setCustomValidity("");
+
     if (event.target.value !== passwordInput.value) {
         event.target.setCustomValidity("Password tidak cocok.");
         if (errorElement) {
             errorElement.textContent = "Password tidak cocok.";
             errorElement.classList.add("text-red-500");
         }
-        event.classList.add("border-red-500");
+        el.classList.add("border-red-500");
     } else {
         event.target.setCustomValidity("");
         if (errorElement) {
             errorElement.textContent = "";
             errorElement.classList.remove("text-red-500");
         }
-        event.classList.remove("border-red-500");
+        el.classList.remove("border-red-500");
     }
 }
 
@@ -62,5 +65,5 @@ formValidator(passwordInput, "Password wajib diisi.", validatePassword);
 formValidator(
     passwordConfirmationInput,
     "Konfirmasi Password wajib diisi.",
-    validatePasswordConfimation
+    validatePasswordConfirmation
 );
