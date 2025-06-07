@@ -10,10 +10,6 @@ const emailInput = signupForm.elements.email;
 const passwordInput = signupForm.elements.password;
 const passwordConfirmationInput = signupForm.elements.password_confirmation;
 
-signupForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-});
-
 function validateUsername(event) {
     const usernameRegex = /^[a-zA-Z0-9_]{8,}$/;
     customRegexValidatorWithMessage(

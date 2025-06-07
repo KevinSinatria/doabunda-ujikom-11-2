@@ -2,16 +2,16 @@
 
 @section('title', 'Homepage')
 @section('content')
-    <section class="h-screen flex justify-center items-center lg:px-20 w-full">
+    <section class="min-h-screen flex justify-center items-center pt-12 lg:px-20 w-full">
         <form id="signup-form" action="{{ route('general.auth.signup') }}" method="post"
             class="flex mt-8 bg-[#fff8eb] w-sm sm:w-md md:w-lg lg:w-xl xl:w-2xl rounded-xl shadow-lg flex-col px-6 py-6">
             @csrf
             {{-- Header of form --}}
             <div class="flex flex-col gap-2 justify-center items-center w-full">
                 <a href="{{ route('general.home') }}">
-                    <img src="{{ asset('favicon.png') }}" alt="logo-doa-bunda" class="w-12 h-12">
+                    <img  loading="lazy" src="{{ asset('favicon.png') }}" alt="logo-doa-bunda" class="w-12 h-12">
                 </a>
-                <h1 class="text-2xl font-semibold">Sign Up ke DoaBunda</h1>
+                <h1 class="text-2xl font-semibold">Sign Up ke <span class="bg-linear-to-r from-[#FFAB00] to-[#FF6B35] bg-clip-text text-transparent">DoaBunda</span></h1>
                 <p class="text-gray-700">Selamat datang di DoaBunda!</p>
             </div>
 
