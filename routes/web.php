@@ -48,6 +48,7 @@ Route::prefix("auth")->group(function () {
 });
 
 Route::get("/profile", [ProfileController::class, "index"])->name("general.profile");
+Route::put("/profile", [ProfileController::class, "update"])->name("general.profile.update");
 
 Route::prefix("wishlists")->group(function () {
     Route::get("/", [WishlistController::class, "index"])->name("customer.wishlists.index");

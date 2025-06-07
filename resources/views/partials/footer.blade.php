@@ -56,7 +56,7 @@
                 </ul>
             </div>
 
-            <div class="mt-12 border-t border-gray-700 pt-8">
+            <div class="mt-12 border-t border-[#eeb868] pt-8">
                 <p class="text-center text-sm text-gray-300 lg:text-right">
                     DoaBunda &copy; 2025. All rights reserved.
                 </p>
