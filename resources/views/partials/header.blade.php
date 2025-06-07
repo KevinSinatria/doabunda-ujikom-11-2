@@ -3,8 +3,8 @@
     $isHome = $routeName === 'general.home';
 @endphp
 {{-- Homepages only with hover effect if scrollY is lower than 80px --}}
-<header id="{{ $isHome ? 'header-home' : 'header-other' }}" x-data="{ open: false }"
-    data-aos="fade-down" x-bind:class="open ? 'bg-[#FFEAC5] lg:bg-transparent' : 'backdrop-blur-2xl'"
+<header id="{{ $isHome ? 'header-home' : 'header-other' }}" x-data="{ open: false }" data-aos="fade-down"
+    x-bind:class="open ? 'bg-[#FFEAC5] lg:bg-transparent' : 'backdrop-blur-2xl'"
     class="fixed w-full top-0 {{ $isHome ? 'lg:backdrop-blur-none hover:mx-12 hover:mt-2 hover:w-[93%] hover:rounded-full hover:shadow hover:border hover:border-gray-400 lg:hover:backdrop-blur' : 'lg:backdrop-blur' }} shadow lg:shadow-none border-b lg:border-b-0 border-b-gray-600 z-50 transition-all duration-300 h-16">
     <nav class="flex items-center justify-between px-2 md:px-4">
         {{-- left-side --}}
@@ -30,15 +30,22 @@
             @endif
 
             <div>
-                <a href="{{ route('general.products.index') }}" class="relative group cursor-pointer">
-                    Products
-                    <span
-                        class="absolute bottom-[1px] left-0 w-full h-[1px] bg-gray-800 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-200 ease-in-out z-10"></span>
-                </a>
+                @if (request()->routeIs('general.products.index'))
+                    <a href="{{ route('general.products.index') }}" class="relative group cursor-pointer font-medium">
+                        Products
+                        <span class="absolute bottom-[1px] left-0 w-full h-[1px] bg-gray-800 z-10"></span>
+                    </a>
+                @else
+                    <a href="{{ route('general.products.index') }}" class="relative group cursor-pointer">
+                        Products
+                        <span
+                            class="absolute bottom-[1px] left-0 w-full h-[1px] bg-gray-800 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-200 ease-in-out z-10"></span>
+                    </a>
+                @endif
             </div>
 
             @if (request()->routeIs('general.about'))
-                <a href="{{ route('general.about') }}" class="relative group cursor-pointer text-amber-700 font-medium">
+                <a href="{{ route('general.about') }}" class="relative group cursor-pointer font-medium">
                     About
                     <span class="absolute bottom-[1px] left-0 w-full h-[1px] bg-gray-800 z-10"></span>
                 </a>
@@ -51,8 +58,7 @@
             @endif
 
             @if (request()->routeIs('general.contact'))
-                <a href="{{ route('general.contact') }}"
-                    class="relative group cursor-pointer text-amber-700 font-medium">
+                <a href="{{ route('general.contact') }}" class="relative group cursor-pointer font-medium">
                     Contact
                     <span class="absolute bottom-[1px] left-0 w-full h-[1px] bg-gray-800 z-10"></span>
                 </a>
@@ -70,7 +76,8 @@
             <div class="flex px-4 justify-center cursor-pointer items-center h-16" x-data="{ userCircleOpen: false }">
                 @if (Auth::user()->role == 'customer')
                     <a title="Wishlists" class="mr-4 relative" href="{{ route('customer.wishlists.index') }}">
-                        <i class="ph-duotone ph-heart-straight shadow-lg hover:shadow-none hover:bg-gray-200 transition-all bg-gray-100 p-1 rounded-full text-[28px]"></i>
+                        <i
+                            class="ph-duotone ph-heart-straight shadow-lg hover:shadow-none hover:bg-gray-200 transition-all bg-gray-100 p-1 rounded-full text-[28px]"></i>
                         @if (Auth::user()->wishlists->count() > 0)
                             <span
                                 class="absolute -top-1 left-6 text-[12px] w-4 h-4 rounded-full animate-bounce bg-red-500 text-white flex justify-center items-center">{{ Auth::user()->wishlists->count() }}</span>
@@ -97,7 +104,7 @@
                             Dashboard
                         </a>
                     @endif
-                    <a href="{{ route('filament.admin.pages.dashboard') }}"
+                    <a href="{{ route('general.profile') }}"
                         class="py-3 w-full text-center hover:bg-gray-200 cursor-pointer">
                         <i class="ph-bold ph-user"></i>
                         User Profile
@@ -162,17 +169,28 @@
                         </a>
                     @endif
 
-                    <div>
-                        <a href="{{ route('general.products.index') }}" class="relative text-xl group cursor-pointer">
-                            Product
-                            <span
-                                class="absolute bottom-[1px] left-0 w-full h-[1px] bg-gray-800 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-200 ease-in-out z-10"></span>
-                        </a>
-                    </div>
+                    @if (request()->routeIs('general.products.index'))
+                        <div>
+                            <a href="{{ route('general.products.index') }}"
+                                class="relative group text-xl cursor-pointer font-medium">
+                                Product
+                                <span class="absolute bottom-[1px] left-0 w-full h-[1px] bg-gray-800 z-10"></span>
+                            </a>
+                        </div>
+                    @else
+                        <div>
+                            <a href="{{ route('general.products.index') }}"
+                                class="relative text-xl group cursor-pointer">
+                                Product
+                                <span
+                                    class="absolute bottom-[1px] left-0 w-full h-[1px] bg-gray-800 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-200 ease-in-out z-10"></span>
+                            </a>
+                        </div>
+                    @endif
 
                     @if (request()->routeIs('general.about'))
                         <a href="{{ route('general.about') }}"
-                            class="relative group cursor-pointer text-amber-700 text-xl font-medium">
+                            class="relative group text-xl cursor-pointer font-medium">
                             About
                             <span class="absolute bottom-[1px] left-0 w-full h-[1px] bg-gray-800 z-10"></span>
                         </a>
@@ -186,7 +204,7 @@
 
                     @if (request()->routeIs('general.contact'))
                         <a href="{{ route('general.contact') }}"
-                            class="relative group cursor-pointer text-amber-700  text-xl font-medium">
+                            class="relative group text-xl cursor-pointer font-medium">
                             Contact
                             <span class="absolute bottom-[1px] left-0 w-full h-[1px] bg-gray-800 z-10"></span>
                         </a>

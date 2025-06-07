@@ -20,6 +20,10 @@
         {{-- Product Detail --}}
         <div class="flex flex-6 flex-col px-2 justify-start items-start">
             <div class="flex-3 flex flex-col justify-start items-start">
+                <div class="mb-2">
+                    <span class="text-sm mr-1">Category: </span>
+                    <span class="bg-[#ffda75] px-4 py-2 rounded-lg text-sm font-semibold uppercase">{{ $product->category->name }}</span>
+                </div>
                 <h1 class="uppercase text-2xl font-semibold">{{ $product->name }}</h1>
                 <div class="flex">
                     <span>{{ number_format($product->testimonies->avg('rating'), 2) ?? 0 }}</span>
