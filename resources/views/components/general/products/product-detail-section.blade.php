@@ -167,9 +167,9 @@
         <div class="w-full flex flex-col divide-y divide-solid divide-[#cba67e] mt-8 gap-8">
             @foreach ($testimonies as $testimony)
                 <div class="flex w-full pb-8 gap-2 items-start">
-                    <div><i class="ph-fill ph-user-circle text-[48px]"></i></div>
+                    <a href="/profile/{{ $testimony->user->username }}" class="cursor-pointer"><i class="ph-fill ph-user-circle text-[48px]"></i></a>
                     <div>
-                        <h3>{{ $testimony->user->username }}</h3>
+                        <a class="cursor-pointer" href="/profile/{{ $testimony->user->username }}">{{ $testimony->user->username }}</a>
                         @include('components.general.products.stars-ratings-component', [
                             'ratingAvg' => $testimony->rating,
                             'size' => '16px',
