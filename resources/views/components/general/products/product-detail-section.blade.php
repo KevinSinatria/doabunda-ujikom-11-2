@@ -127,42 +127,42 @@
                 class="flex flex-col justify-center rounded-xl shadow-lg items-center py-8 px-6 md:px-8 w-full bg-white hover:shadow-xl transition-all duration-300"
                 method="POST" enctype="multipart/form-data"
                 action="{{ route('customer.testimonies.store', ['slug' => $product->slug]) }}">
-                <h1 class="text-2xl font-bold text-[#604c10] mb-2">Berikan Testimoni!</h1>
+                <h1 class="text-2xl font-bold text-[#604c10] mb-2">Berikan Testimonimu!</h1>
                 <p class="text-center text-[#604c10] mb-4">Berikan testimoni tentang produk ini berdasarkan pengalamanmu
                     selama pembelian produk ini.</p>
                 <i class="ph-fill ph-user-circle text-[48px] text-[#FFAB00]"></i>
                 <h2 class="text-[#604c10] font-semibold mb-6">{{ Auth::user()->username }}</h2>
                 @csrf
                 <div class="rating">
-                    <input type="radio" id="star5" name="rate" value="5" />
+                    <input type="radio" id="star5" name="rate" value="5" required/>
                     <label for="star5" title="text"><svg viewBox="0 0 576 512" height="1em"
                             xmlns="http://www.w3.org/2000/svg" class="star-solid">
                             <path
                                 d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
                             </path>
                         </svg></label>
-                    <input type="radio" id="star4" name="rate" value="4" />
+                    <input type="radio" id="star4" name="rate" value="4" required/>
                     <label for="star4" title="text"><svg viewBox="0 0 576 512" height="1em"
                             xmlns="http://www.w3.org/2000/svg" class="star-solid">
                             <path
                                 d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
                             </path>
                         </svg></label>
-                    <input type="radio" id="star3" name="rate" value="3" />
+                    <input type="radio" id="star3" name="rate" value="3" required/>
                     <label for="star3" title="text"><svg viewBox="0 0 576 512" height="1em"
                             xmlns="http://www.w3.org/2000/svg" class="star-solid">
                             <path
                                 d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
                             </path>
                         </svg></label>
-                    <input type="radio" id="star2" name="rate" value="2" />
+                    <input type="radio" id="star2" name="rate" value="2" required/>
                     <label for="star2" title="text"><svg viewBox="0 0 576 512" height="1em"
                             xmlns="http://www.w3.org/2000/svg" class="star-solid">
                             <path
                                 d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
                             </path>
                         </svg></label>
-                    <input type="radio" id="star1" name="rate" value="1" />
+                    <input type="radio" id="star1" name="rate" value="1" required/>
                     <label for="star1" title="text"><svg viewBox="0 0 576 512" height="1em"
                             xmlns="http://www.w3.org/2000/svg" class="star-solid">
                             <path
@@ -171,8 +171,9 @@
                         </svg></label>
                 </div>
 
-                <textarea placeholder="Menurut saya, produk ini..." name="testimony"
+                <textarea placeholder="Menurut saya, produk ini..." name="testimony" required minlength="20"
                     class="mt-8 outline-none transition-all duration-200 shadow-lg focus:shadow-none focus:ring-2 focus:ring-[#FFAB00] w-full h-32 p-4 rounded-xl border border-[#cba67e] text-[#604c10]"></textarea>
+                <p class="text-xs font-medium text-[#604c10]">*Minimal 20 Karakter</p>
                 <p class="mt-4 text-[#604c10] font-medium">Sertakan gambar:</p>
                 <label for="file"
                     class="file-upload-label overflow-hidden bg-[#fffaef] transition-all hover:bg-[#fff2d4]"
@@ -192,7 +193,7 @@
                     <input id="file" name="image" type="file" accept="image/*" />
                 </label>
 
-                <button type="submit"
+                <button type="submit" data-no-swup
                     class="bg-[#FFAB00] hover:bg-[#FFC107] transition-all text-white py-3 px-6 rounded-lg mt-8 font-semibold shadow-md hover:shadow-lg">
                     Kirim Testimoni
                 </button>

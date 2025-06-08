@@ -99,7 +99,7 @@
                     class="fixed shadow-xl bg-white top-16 right-0 overflow-hidden flex flex-col items-center w-60 rounded-lg z-1000">
                     @if (Auth::user()->role == 'admin')
                         <a href="{{ route('filament.admin.pages.dashboard') }}"
-                            class="py-3 w-full text-center hover:bg-gray-200 cursor-pointer">
+                            class="py-3 w-full text-center hover:bg-gray-200 cursor-pointer" data-no-swup>
                             <i class="ph-bold ph-house"></i>
                             Dashboard
                         </a>
@@ -110,7 +110,7 @@
                         User Profile
                     </a>
                     <a href="{{ route('general.auth.signout') }}"
-                        class="py-3 w-full text-center hover:bg-gray-200 text-red-500 cursor-pointer">
+                        class="py-3 w-full text-center hover:bg-gray-200 text-red-500 cursor-pointer" data-no-swup>
                         <i class="ph-bold ph-sign-out"></i>
                         Sign Out
                     </a>

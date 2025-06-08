@@ -39,7 +39,7 @@
                 <p class="text-sm text-end">Belum punya akun? <a href="{{ route('general.auth.signup') }}"
                         class="text-[#ef9f00] hover:text-[#4d451c] cursor-pointer transition-all duration-300">Sign Up</a>
                 </p>
-                <button type="submit"
+                <button type="submit" data-no-swup
                     class="w-full px-4 py-2 cursor-pointer rounded-lg bg-[#FFAB00] text-white hover:bg-[#FFC107] transition-all duration-300">Sign
                     In
         </form>
