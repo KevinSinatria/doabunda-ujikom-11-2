@@ -60,7 +60,7 @@ class SigninController extends Controller
         session()->flash('show_toast', [
             'type' => 'success',
             'title' => 'Berhasil logout!',
-            'duration' => 1500
+            'duration' => 3000
         ]);
 
         return redirect()->route('general.home');

@@ -229,3 +229,65 @@
     animation-duration: 0.5s;
     animation-timing-function: ease-in-out;
 }
+
+:root {
+    --swup-blue: hsl(239, 50%, 30%);
+    --swup-primary: #5e3c00;
+    --swup-red: hsl(354, 99%, 68%);
+    --swup-green: hsl(172, 65%, 62%);
+    --link-underline-color: var(--swup-green);
+    --font-size-fluid-0: clamp(1rem, 2vw, 1.15rem);
+    --font-size-fluid-1: clamp(1.15rem, 3vw, 1.35rem);
+    --font-size-fluid-2: clamp(1.35rem, 4vw, 1.7rem);
+    --font-size-fluid-3: clamp(1.7rem, 5vw, 2.2rem);
+    --gap: clamp(1rem, 2vw, 2rem);
+    --gap-x2: calc(var(--gap) * 2);
+    --radius-round: 1000px;
+    --radius-0: 0.2em;
+    --radius-1: 0.4em;
+    scrollbar-gutter: stable;
+}
+
+/* Slightly move main content */
+
+html.is-changing .transition-main {
+    transition: transform 400ms ease-in-out;
+}
+
+html.is-animating.is-leaving .transition-main {
+    transform: translateY(calc(1 * 5vh * var(--overlay-direction, 1)));
+}
+
+html.is-animating.is-rendering .transition-main {
+    transform: translateY(calc(-1 * 5vh * var(--overlay-direction, 1)));
+}
+
+.transition-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    background-color: var(--swup-primary);
+    opacity: 0;
+    transform: translate3d(0, calc(-1 * 100% * var(--overlay-direction, 1)), 0);
+    pointer-events: none;
+}
+
+html.is-changing .transition-overlay {
+    transition: transform 400ms ease-in-out;
+    opacity: 1;
+}
+
+html.is-animating .transition-overlay {
+    transform: translate3d(0, 0, 0);
+}
+
+html.is-rendering .transition-overlay {
+    transform: translate3d(0, calc(var(--overlay-direction, 1) * 100%), 0);
+}
+
+html.to-back {
+    /* --overlay-direction: -1; */
+}

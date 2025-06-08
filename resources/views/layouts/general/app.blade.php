@@ -14,80 +14,41 @@
 </head>
 
 <body class="font-poppins overflow-x-hidden">
-    @include('sweetalert2::index')
-    @include('partials.header')
-    <main class="bg-[#FFEAC5]">
-        @yield('content')
-    </main>
-    @include('partials.footer')
-    @if (session('show_toast'))
-        <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                @php
-                    $toast = session('show_toast');
-                @endphp
-                const Toast = Swal.mixin({
-                    toast: true,
-                    position: 'top-end',
-                    width: 'auto',
-                    showConfirmButton: false,
-                    timer: {{ $toast['duration'] ?? 3000 }},
-                    timerProgressBar: true,
-                    didOpen: (toast) => {
-                        toast.addEventListener('mouseenter', Swal.stopTimer)
-                        toast.addEventListener('mouseleave', Swal.resumeTimer)
-                    }
+    <div id="swup" class="transition-main">
+        @include('sweetalert2::index')
+        @include('partials.header')
+        <main class="bg-[#FFEAC5]">
+            @yield('content')
+        </main>
+        @include('partials.footer')
+        @if (session('show_toast'))
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    @php
+                        $toast = session('show_toast');
+                    @endphp
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: 'top-end',
+                        width: 'auto',
+                        showConfirmButton: false,
+                        timer: {{ $toast['duration'] ?? 3000 }},
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.addEventListener('mouseenter', Swal.stopTimer)
+                            toast.addEventListener('mouseleave', Swal.resumeTimer)
+                        }
+                    })
+                    Toast.fire({
+                        icon: '{{ $toast['type'] }}',
+                        title: '{{ $toast['title'] }}'
+                    })
                 })
-                Toast.fire({
-                    icon: '{{ $toast['type'] }}',
-                    title: '{{ $toast['title'] }}'
-                })
-            })
-        </script>
-    @endif
+            </script>
+        @endif
+    </div>
+    <div class="overlay transition-overlay"></div>
 </body>
 
-<script>
-    const headerHome = document.getElementById('header-home');
-    const headerOther = document.getElementById('header-other');
-
-    if (headerHome) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 80) {
-                headerHome.classList.add('lg:mx-12', 'lg:bg-white/20', 'lg:mt-2', 'lg:w-[93%]',
-                    'lg:rounded-full', 'lg:shadow',
-                    'lg:border', 'lg:border-gray-400', 'lg:backdrop-blur-2xl');
-                headerHome.classList.remove('lg:backdrop-blur-none', 'lg:shadow-none', 'hover:mx-12',
-                    'hover:mt-2',
-                    'hover:w-[93%]', 'hover:rounded-full', 'hover:shadow', 'hover:border',
-                    'hover:border-gray-400', 'lg:hover:backdrop-blur');
-            } else {
-                headerHome.classList.remove('lg:mx-12', 'lg:bg-white/20', 'lg:mt-2', 'lg:w-[93%]',
-                    'lg:rounded-full', 'lg:shadow',
-                    'lg:border', 'lg:border-gray-400', 'lg:backdrop-blur-2xl');
-                headerHome.classList.add('lg:backdrop-blur-none', 'lg:shadow-none', 'hover:mx-12', 'hover:mt-2',
-                    'hover:w-[93%]', 'hover:rounded-full', 'hover:shadow', 'hover:border',
-                    'hover:border-gray-400', 'lg:hover:backdrop-blur');
-            }
-        });
-    }
-
-    if (headerOther) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 80) {
-                headerOther.classList.add('lg:mx-12', 'lg:bg-white/20', 'lg:mt-2', 'lg:w-[93%]',
-                    'lg:rounded-full', 'lg:shadow-lg',
-                    'lg:border', 'lg:border-gray-400', 'lg:backdrop-blur-2xl');
-                headerOther.classList.remove('lg:backdrop-blur-none', 'lg:shadow-none');
-            } else {
-                headerOther.classList.remove('lg:mx-12', 'lg:bg-white/20', 'lg:mt-2', 'lg:w-[93%]',
-                    'lg:rounded-full',
-                    'lg:shadow-lg',
-                    'lg:border', 'lg:border-gray-400', 'lg:backdrop-blur-2xl');
-                headerOther.classList.add('lg:backdrop-blur', 'lg:shadow-none');
-            }
-        });
-    }
-</script>
 
 </html>
