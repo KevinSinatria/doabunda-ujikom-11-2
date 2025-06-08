@@ -5,6 +5,9 @@
     @include('components.general.products.products-section', [
         'products' => $products,
         'title' => 'Products',
-        'search' => $search
+        'search' => $search,
+        'categories' => $categories,
+        'filterCategory' => $filterCategory,
+        'categoryIsNotFound' => $categoryIsNotFound,
     ])
 @endsection
