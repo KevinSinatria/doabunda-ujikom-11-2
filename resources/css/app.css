@@ -223,3 +223,9 @@
 .browse-button:hover {
     background-color: rgb(14, 14, 14);
 }
+
+@view-transition {
+    navigation: auto;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+}

@@ -4,7 +4,7 @@
     @if (request()->routeIs('general.products.index'))
         <div x-data="{ filterOpen: false }" class="w-full flex items-center justify-center">
             <form x-ref="searchForm" x-data="{ value: '{{ $search ?? '' }}' }" x-on:input.debounce.500="$event.target.form.submit()"
-                method="GET" class="max-w-sm sm:max-w-lg md:max-w-xl lg:max-w-2xl relative mx-12 w-full">
+                method="GET" class="max-w-xs sm:max-w-lg md:max-w-xl lg:max-w-2xl relative mr-10 sm:mr-12 w-full">
                 <label for="default-search"
                     class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
                 <div class="relative">
@@ -31,100 +31,152 @@
                     class="ph ph-funnel text-[28px] absolute -top-[22px] shadow-lg bg-gray-100 hover:bg-gray-200 hover:shadow-md transition-all cursor-pointer p-2 rounded-full -right-3"></i>
             </button>
             <form x-show="filterOpen" x-transition.origin.right.duration.300ms
-                class="fixed rounded-xl right-4 top-20 w-96 z-200 h-[80vh] bg-white/60 backdrop-blur-2xl border border-gray-300"
-                action="">
-                <div class="flex justify-between px-4 w-full items-center">
+                class="fixed flex flex-col justify-between drop-sha items-center rounded-xl right-4 top-20 px-4 py-4 w-96 z-200 h-[80vh] bg-white/5 backdrop-blur-[60px] border border-gray-300"
+                method="GET">
+                {{-- Header of filter --}}
+                <div class="flex justify-between w-full items-center">
                     <i class="ph-duotone top-[7px] relative ph-funnel text-[28px]"></i>
                     <h1 class="text-xl font-semibold mt-4">Filter Products</h1>
+                    <button type="button" x-on:click="filterOpen = false"
+                        class="top-[7px] relative text-2xl cursor-pointer p-[2px] flex items-center justify-center rounded-full transition-all hover:bg-gray-300">
+                        <i class="ph ph-x"></i>
+                    </button>
+                </div>
+
+                {{-- Filter Form --}}
+                <div class="flex flex-col justify-center items-start w-full">
+                    <label for="category" class="pl-2 mb-1 text-sm font-medium text-gray-900">Kategori</label>
+                    <select name="category" id="category"
+                        class="w-full px-4 py-2 cursor-pointer bg-gray-100 border border-gray-300 rounded-lg focus:ring focus:ring-black transition-all focus:shadow-lg">
+                        <option value="all"
+                            {{ $filterCategory == 'all' || !$filterCategory || $filterCategory == '' ? 'selected' : '' }}>
+                            Semua Kategori</option>
+                        @foreach ($categories as $category)
+                            <option value="{{ $category->name }}"
+                                {{ $filterCategory == $category->name ? 'selected' : '' }}>
+                                {{ $category->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+                {{-- Filter Button --}}
+                <div class="flex flex-col justify-center items-center w-full">
                     <button
-                        class="top-[7px] relative text-2xl cursor-pointer hover:text-[#bd8c22] hover:shadow-lg active:shadow-none p-1 rounded-lg transition-all hover:bg-[#ffeabd]">
-                        <i class="ph-bold ph-x"></i>
+                        class="w-full flex cursor-pointer justify-center items-center gap-3 bg-gray-700 hover:bg-gray-800 transition-all text-white py-3 px-6 rounded-lg mt-8 font-medium text-sm shadow-md hover:shadow-lg active:shadow-none">
+                        <i class="ph-bold ph-funnel-x text-[20px]"></i>
+                        <span>Reset Filter</span>
+                    </button>
+                    <button
+                        class="w-full flex cursor-pointer justify-center items-center gap-3 bg-[#B8860B] hover:bg-[#A0760A] transition-all text-white py-3 px-6 rounded-lg mt-4 font-medium text-sm shadow-md hover:shadow-lg active:shadow-none">
+                        <i class="ph-bold ph-check text-[20px]"></i>
+                        <span>Terapkan Filter</span>
                     </button>
                 </div>
             </form>
         </div>
     @endif
 
-
-    @if ($products->count() > 0)
-        <div
-            class="w-full gap-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 2xl:grid-cols-6 cursor-pointer items-center justify-items-center justify-center px-4 sm:px-6 md:px-8 lg:px-12 mx-auto mt-8">
-            {{-- Product Card --}}
-            @foreach ($products as $product)
-                <a x-data="{
-                    isWishlist: {{ Auth::check() && Auth::user()->role == 'customer' && Auth::user()->wishlists->where('product_id', $product->id)->isNotEmpty() ? 'true' : 'false' }},
-                    isInStock: {{ $product->stock > 0 ? 'true' : 'false' }}
-                }" href="{{ route('general.products.show', $product->slug) }}"
-                    class="w-full max-w-60 rounded-xl relative transition-all flex flex-col items-start shadow-none active:shadow-none duration-200 hover:shadow-lg bg-gray-100 overflow-hidden justify-center gap-1">
-                    <img src="{{ asset('storage/' . $product->images[0]->image_path) }}" loading="lazy"
-                        alt="Product Image" class="object-cover w-full h-56">
-
-                    <p x-bind:class="isInStock ? 'bg-green-600 top-6 -left-12' : 'bg-red-600 top-6 -left-12'"
-                        class="absolute shadow-xl z-10 text-white font-medium w-full py-2 flex justify-center items-center -rotate-45">
-                        {{ $product->stock > 0 ? 'In Stock' : 'Out of Stock' }}</p>
-
-                    <form id="wishlist-form-{{ $product->id }}" action="{{ route('customer.wishlists.store') }}"
-                        method="POST">
-                        @csrf
-                        <input type="hidden" name="product_id" value="{{ $product->id }}">
-                    </form>
-
-                    <form id="delete-wishlist-form-{{ $product->id }}"
-                        action="{{ route('customer.wishlists.destroy') }}" method="POST">
-                        @csrf
-                        @method('delete')
-                        <input type="hidden" name="product_id" value="{{ $product->id }}">
-                    </form>
-
-                    @if (Auth::check() && Auth::user()->role == 'customer')
-                        <img x-show="!isWishlist"
-                            x-on:click.stop.prevent="isWishlist = true; document.getElementById('wishlist-form-{{ $product->id }}').submit()"
-                            src="{{ asset('assets/vector/heart-straight.svg') }}" alt="Add to Wishlist"
-                            class="absolute cursor-pointer top-4 right-4 w-6 h-6">
-                        <img x-show="isWishlist"
-                            x-on:click.stop.prevent="isWishlist = false; document.getElementById('delete-wishlist-form-{{ $product->id }}').submit()"
-                            src="{{ asset('assets/vector/heart-straight-fill.svg') }}" alt="Add to Wishlist"
-                            class="absolute cursor-pointer top-4 right-4 w-6 h-6">
-                    @endif
-
-                    <div class="px-4 pb-4" x-data="{ isFeatured: {{ $product->is_featured ? 'true' : 'false' }} }">
-                        <p
-                            x-bind:class="isFeatured ?
-                                'bg-linear-to-r/oklch w-fit from-[#b3a039] to-[#B8860B] shadow-md text-white px-3 py-1 rounded-lg' :
-                                'hidden'">
-                            {{ $product->is_featured ? 'Featured' : '' }}</p>
-                        <h2 class="line-clamp-2">{{ $product->name }}</h2>
-                        <p class="text-red-700"><span class="text-xs">Rp.{{ ' ' }}</span><span
-                                class="text-base">{{ number_format($product->price, 0, '.', '.') }}</span></p>
-                        <div class="mt-2 flex items-center gap-1">
-                            <img src="{{ asset('assets/vector/star-fill.svg') }}" alt="Stars" class="w-4 h-4">
-                            <p class="text-sm text-gray-800">
-                                {{ number_format($product->testimonies->avg('rating'), 2) ?? 0 }}
-                                <span>({{ $product->testimonies->count() }})</span>
-                            </p>
-                        </div>
-                    </div>
-                </a>
-            @endforeach
-
+    @if ($categoryIsNotFound ?? false)
+        <div class="w-full flex flex-col items-center justify-center gap-4">
+            <img class="w-80 drop-shadow-lg" src="{{ asset('assets/vector/undraw_file-search_cbur.svg') }}"
+                alt="Not Found Products Vector">
+            <p class="text-2xl text-center md:text-3xl lg:text-4xl font-semibold">Kategori yang kamu cari gak
+                ketemu
+                nih!
+            </p>
+            <p>Coba cari <a class="text-[#936400] font-medium hover:text-[#b3a039] transition-all"
+                    href="{{ route('general.products.index') }}">product</a> yang lain yaa! Atau hubungi <a
+                    href="https://wa.me/62895346195409?text=Hi, Saya ingin bertanya apakah produk {{ $search }} ada?"
+                    target="_blank" class="text-[#936400] font-medium hover:text-[#b3a039] transition-all">Admin</a>
+                kami ajaa..</p>
         </div>
     @else
-        @if (request()->routeIs('general.products.index'))
-            <div class="w-full flex flex-col items-center justify-center gap-4">
-                <img class="w-80 drop-shadow-lg" src="{{ asset('assets/vector/undraw_file-search_cbur.svg') }}"
-                    alt="Not Found Products Vector">
-                <p class="text-2xl text-center md:text-3xl lg:text-4xl font-semibold">Product yang kamu cari gak ketemu
-                    nih!
-                </p>
-                <p>Coba cari <a class="text-[#936400] font-medium hover:text-[#b3a039] transition-all"
-                        href="{{ route('general.products.index') }}">product</a> yang lain yaa! Atau hubungi <a
-                        href="https://wa.me/62895346195409?text=Hi, Saya ingin bertanya apakah produk {{ $search }} ada?"
-                        target="_blank" class="text-[#936400] font-medium hover:text-[#b3a039] transition-all">Admin</a>
-                    kami ajaa..</p>
+        @if ($products->count() > 0)
+            <div
+                class="w-full gap-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 2xl:grid-cols-6 cursor-pointer items-center justify-items-center justify-center px-4 sm:px-6 md:px-8 lg:px-12 mx-auto mt-8">
+                {{-- Product Card --}}
+                @foreach ($products as $product)
+                    <a x-data="{
+                        isWishlist: {{ Auth::check() && Auth::user()->role == 'customer' && Auth::user()->wishlists->where('product_id', $product->id)->isNotEmpty() ? 'true' : 'false' }},
+                        isInStock: {{ $product->stock > 0 ? 'true' : 'false' }},
+                        isFeatured: {{ $product->is_featured ? 'true' : 'false' }}
+                    }" href="{{ route('general.products.show', $product->slug) }}"
+                        class="w-full max-w-60 min-h-78 shadow rounded-xl relative transition-all flex flex-col items-start active:shadow-none duration-200 hover:shadow-lg bg-[#fffdf9] overflow-hidden justify-center gap-1">
+                        <img src="{{ asset('storage/' . $product->images[0]->image_path) }}" loading="lazy"
+                            alt="Product Image" class="object-cover w-full h-56">
+
+                        <p x-bind:class="isInStock ? 'bg-green-600 top-6 -left-12' : 'bg-red-600 top-6 -left-12'"
+                            class="absolute shadow-xl text-sm z-10 text-white font-medium w-full py-1 flex justify-center items-center -rotate-45">
+                            {{ $product->stock > 0 ? 'In Stock' : 'Out of Stock' }}</p>
+                        <p
+                            x-bind:class="isFeatured ?
+                                'bg-linear-to-r/oklch flex items-center gap-2 justify-center from-[#b3a039] from-10% via-[#B8860B] to-[#b3a039] to-90% absolute top-50 w-full shadow-md text-sm font-medium text-gray-200 py-1 px-3' :
+                                'hidden'">
+                            <span><i class="ph-fill ph-star"></i></span>{{ $product->is_featured ? 'Featured' : '' }}
+                        </p>
+
+                        <form id="wishlist-form-{{ $product->id }}" action="{{ route('customer.wishlists.store') }}"
+                            method="POST">
+                            @csrf
+                            <input type="hidden" name="product_id" value="{{ $product->id }}">
+                        </form>
+
+                        <form id="delete-wishlist-form-{{ $product->id }}"
+                            action="{{ route('customer.wishlists.destroy') }}" method="POST">
+                            @csrf
+                            @method('delete')
+                            <input type="hidden" name="product_id" value="{{ $product->id }}">
+                        </form>
+
+                        @if (Auth::check() && Auth::user()->role == 'customer')
+                            <img x-show="!isWishlist"
+                                x-on:click.stop.prevent="isWishlist = true; document.getElementById('wishlist-form-{{ $product->id }}').submit()"
+                                src="{{ asset('assets/vector/heart-straight.svg') }}" alt="Add to Wishlist"
+                                class="absolute cursor-pointer top-4 right-4 w-6 h-6">
+                            <img x-show="isWishlist"
+                                x-on:click.stop.prevent="isWishlist = false; document.getElementById('delete-wishlist-form-{{ $product->id }}').submit()"
+                                src="{{ asset('assets/vector/heart-straight-fill.svg') }}" alt="Add to Wishlist"
+                                class="absolute cursor-pointer top-4 right-4 w-6 h-6">
+                        @endif
+
+                        <div class="px-4 pb-4 flex flex-col items-start">
+                            <h2 class="line-clamp-2 text-sm">{{ $product->name }}</h2>
+                            <div class="flex flex-col">
+                                <p class="text-red-700"><span class="text-xs">Rp.{{ ' ' }}</span><span
+                                        class="text-base">{{ number_format($product->price, 0, '.', '.') }}</span></p>
+                                <div class="flex items-center gap-1 text-sm">
+                                    <i class="ph-fill text-[#866f57] w-4 h-4 ph-star"></i>
+                                    <p class="text-sm text-[#866f57]">
+                                        {{ number_format($product->testimonies->avg('rating'), 2) ?? 0 }}
+                                        <span>({{ $product->testimonies->count() }})</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                @endforeach
+
             </div>
+        @else
+            @if (request()->routeIs('general.products.index'))
+                <div class="w-full flex flex-col items-center justify-center gap-4">
+                    <img class="w-80 drop-shadow-lg" src="{{ asset('assets/vector/undraw_file-search_cbur.svg') }}"
+                        alt="Not Found Products Vector">
+                    <p class="text-2xl text-center md:text-3xl lg:text-4xl font-semibold">Product yang kamu cari gak
+                        ketemu
+                        nih!
+                    </p>
+                    <p>Coba cari <a class="text-[#936400] font-medium hover:text-[#b3a039] transition-all"
+                            href="{{ route('general.products.index') }}">product</a> yang lain yaa! Atau hubungi <a
+                            href="https://wa.me/62895346195409?text=Hi, Saya ingin bertanya apakah produk {{ $search }} ada?"
+                            target="_blank"
+                            class="text-[#936400] font-medium hover:text-[#b3a039] transition-all">Admin</a>
+                        kami ajaa..</p>
+                </div>
+            @endif
         @endif
-    @endif
 </section>
 <div class="mx-16 px-4 py-4 rounded-xl mt-12 bg-[#f5d689]">
     {{ $products->links('pagination::tailwind') }}
 </div>
+@endif

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Product;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Product;
 use App\Models\Testimony;
 use App\Models\Wishlist;
@@ -16,22 +17,38 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         $products = Product::with('category', 'images', 'testimonies')->latest();
+        $categories = Category::all();
         $search = '';
         $filterCategory = '';
+        $categoryIsNotFound = false;
 
         if ($request->search) {
             $search = $request->search;
             $products->where('name', 'like', '%' . $search . '%');
         }
 
-        if ($request->filterCategory) {
-            $filterCategory = $request->filterCategory;
-            $products->where('category_id', $filterCategory);
+        if ($request->category) {
+            $filterCategory = $request->category;
+            if ($filterCategory == 'all') {
+                $filterCategory = '';
+            }
+
+            $category = Category::where('name', $filterCategory)->first();
+            if ($category) {
+                $products->where('category_id', $category->id);
+            } else {
+                if ($request->category != 'all') {
+                    $categoryIsNotFound = true;
+                }
+            }
         }
-        
+
         return view('pages.general.product', [
             'products' => $products->paginate(20),
-            'search' => $search
+            'search' => $search,
+            'categories' => $categories,
+            'filterCategory' => $filterCategory,
+            'categoryIsNotFound' => $categoryIsNotFound
         ]);
     }
 
