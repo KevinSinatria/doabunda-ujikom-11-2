@@ -8,7 +8,8 @@
     @if (!$wishlists->isEmpty())
         @include('components.general.products.products-section', [
             'products' => $other_products,
-            'title' => 'Other Products',
+            'title' => 'Produk Lainnya',
+            'subtitle' => 'Temukan produk-produk yang kamu butuhkan di DoaBunda',
         ])
     @endif
 @endsection

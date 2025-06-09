@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Widgets\StatsOverviewWidget;
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Middleware\AuthMiddleware;
 use Filament\Http\Middleware\Authenticate;
@@ -43,6 +44,7 @@ class AdminPanelProvider extends PanelProvider
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widget')
             ->widgets([
                 Widgets\AccountWidget::class,
+                StatsOverviewWidget::class,
                 // Widgets\FilamentInfoWidget::class,
             ])
             ->middleware([
