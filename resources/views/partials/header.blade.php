@@ -18,12 +18,12 @@
         <div class="hidden justify-between gap-8 lg:flex py-2">
             @if (request()->routeIs('general.home'))
                 <a href="{{ route('general.home') }}" class="relative group cursor-pointer font-medium">
-                    Home
+                    Beranda
                     <span class="absolute bottom-[1px] left-0 w-full h-[1px] bg-gray-800 z-10"></span>
                 </a>
             @else
                 <a href="{{ route('general.home') }}" class="relative group cursor-pointer">
-                    Home
+                    Beranda
                     <span
                         class="absolute bottom-[1px] left-0 w-full h-[1px] bg-gray-800 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-200 ease-in-out z-10"></span>
                 </a>
@@ -32,12 +32,12 @@
             <div>
                 @if (request()->routeIs('general.products.index'))
                     <a href="{{ route('general.products.index') }}" class="relative group cursor-pointer font-medium">
-                        Products
+                        Produk
                         <span class="absolute bottom-[1px] left-0 w-full h-[1px] bg-gray-800 z-10"></span>
                     </a>
                 @else
                     <a href="{{ route('general.products.index') }}" class="relative group cursor-pointer">
-                        Products
+                        Produk
                         <span
                             class="absolute bottom-[1px] left-0 w-full h-[1px] bg-gray-800 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-200 ease-in-out z-10"></span>
                     </a>
@@ -46,12 +46,12 @@
 
             @if (request()->routeIs('general.about'))
                 <a href="{{ route('general.about') }}" class="relative group cursor-pointer font-medium">
-                    About
+                    Tentang Kami
                     <span class="absolute bottom-[1px] left-0 w-full h-[1px] bg-gray-800 z-10"></span>
                 </a>
             @else
                 <a href="{{ route('general.about') }}" class="relative group cursor-pointer">
-                    About
+                    Tentang Kami
                     <span
                         class="absolute bottom-[1px] left-0 w-full h-[1px] bg-gray-800 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-200 ease-in-out z-10"></span>
                 </a>
@@ -59,12 +59,12 @@
 
             @if (request()->routeIs('general.contact'))
                 <a href="{{ route('general.contact') }}" class="relative group cursor-pointer font-medium">
-                    Contact
+                    Hubungi Kami
                     <span class="absolute bottom-[1px] left-0 w-full h-[1px] bg-gray-800 z-10"></span>
                 </a>
             @else
                 <a href="{{ route('general.contact') }}" class="relative group cursor-pointer">
-                    Contact
+                    Hubungi Kami
                     <span
                         class="absolute bottom-[1px] left-0 w-full h-[1px] bg-gray-800 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-200 ease-in-out z-10"></span>
                 </a>
@@ -101,18 +101,18 @@
                         <a href="{{ route('filament.admin.pages.dashboard') }}"
                             class="py-3 w-full text-center hover:bg-gray-200 cursor-pointer" data-no-swup>
                             <i class="ph-bold ph-house"></i>
-                            Dashboard
+                            Dasbor Admin
                         </a>
                     @endif
                     <a href="{{ route('general.profile') }}"
                         class="py-3 w-full text-center hover:bg-gray-200 cursor-pointer">
                         <i class="ph-bold ph-user"></i>
-                        User Profile
+                        Lihat Profil
                     </a>
                     <a href="{{ route('general.auth.signout') }}"
                         class="py-3 w-full text-center hover:bg-gray-200 text-red-500 cursor-pointer" data-no-swup>
                         <i class="ph-bold ph-sign-out"></i>
-                        Sign Out
+                        Keluar
                     </a>
                 </div>
 
@@ -131,11 +131,10 @@
             <div class="flex gap-8 justify-center items-center">
                 <a href="{{ route('general.auth.getsignin') }}"
                     class="whitespace-nowrap bg-gray-300 hidden md:block  px-4 py-2 rounded-xl hover:text-black border border-black lg:border-gray-400 shadow text-black lg:text-[#574723] active:text-white transition-all">
-                    Sign In
+                    Masuk
                 </a>
                 <a href="{{ route('general.auth.getsignup') }}"
-                    class="bg-[#FFD369] whitespace-nowrap hidden md:block  px-4 py-2 rounded-xl hover:bg-yellow-600 hover:text-white transition-all">Sign
-                    Up</a>
+                    class="bg-[#FFD369] whitespace-nowrap hidden md:block  px-4 py-2 rounded-xl hover:bg-yellow-600 hover:text-white transition-all">Daftar</a>
                 <label class="hamburger cursor-pointer block lg:hidden">
                     <input type="checkbox" x-model="open" />
                     <svg viewBox="0 0 32 32">
@@ -158,12 +157,12 @@
                     @if (request()->routeIs('general.home'))
                         <a href="{{ route('general.home') }}"
                             class="relative group text-xl cursor-pointer font-medium">
-                            Home
+                            Beranda
                             <span class="absolute bottom-[1px] left-0 w-full h-[1px] bg-gray-800 z-10"></span>
                         </a>
                     @else
                         <a href="{{ route('general.home') }}" class="relative text-xl group cursor-pointer">
-                            Home
+                            Beranda
                             <span
                                 class="absolute bottom-[1px] left-0 w-full h-[1px] bg-gray-800 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-200 ease-in-out z-10"></span>
                         </a>
@@ -173,7 +172,7 @@
                         <div>
                             <a href="{{ route('general.products.index') }}"
                                 class="relative group text-xl cursor-pointer font-medium">
-                                Product
+                                Produk
                                 <span class="absolute bottom-[1px] left-0 w-full h-[1px] bg-gray-800 z-10"></span>
                             </a>
                         </div>
@@ -181,7 +180,7 @@
                         <div>
                             <a href="{{ route('general.products.index') }}"
                                 class="relative text-xl group cursor-pointer">
-                                Product
+                                Produk
                                 <span
                                     class="absolute bottom-[1px] left-0 w-full h-[1px] bg-gray-800 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-200 ease-in-out z-10"></span>
                             </a>
@@ -191,12 +190,12 @@
                     @if (request()->routeIs('general.about'))
                         <a href="{{ route('general.about') }}"
                             class="relative group text-xl cursor-pointer font-medium">
-                            About
+                            Tentang Kami
                             <span class="absolute bottom-[1px] left-0 w-full h-[1px] bg-gray-800 z-10"></span>
                         </a>
                     @else
                         <a href="{{ route('general.about') }}" class="relative text-xl group cursor-pointer">
-                            About
+                            Tentang Kami
                             <span
                                 class="absolute bottom-[1px] left-0 w-full h-[1px] bg-gray-800 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-200 ease-in-out z-10"></span>
                         </a>
@@ -205,12 +204,12 @@
                     @if (request()->routeIs('general.contact'))
                         <a href="{{ route('general.contact') }}"
                             class="relative group text-xl cursor-pointer font-medium">
-                            Contact
+                            Hubungi Kami
                             <span class="absolute bottom-[1px] left-0 w-full h-[1px] bg-gray-800 z-10"></span>
                         </a>
                     @else
                         <a href="{{ route('general.contact') }}" class="relative text-xl group cursor-pointer">
-                            Contact
+                            Hubungi Kami
                             <span
                                 class="absolute bottom-[1px] left-0 w-full h-[1px] bg-gray-800 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-200 ease-in-out z-10"></span>
                         </a>
@@ -222,11 +221,10 @@
                         <div class="flex flex-col gap-8 justify-center items-center">
                             <a href="{{ route('general.auth.getsignin') }}"
                                 class="hover:bg-[#FFD369] whitespace-nowrap px-32 py-2 rounded-xl hover:text-black border border-black lg:border-gray-400 shadow text-black lg:text-white active:text-white transition-all">
-                                Sign In
+                                Masuk
                             </a>
                             <a href="{{ route('general.auth.getsignup') }}"
-                                class="bg-[#FFD369] whitespace-nowrap px-32 py-2 rounded-xl hover:bg-yellow-600 hover:text-white transition-all">Sign
-                                Up</a>
+                                class="bg-[#FFD369] whitespace-nowrap px-32 py-2 rounded-xl hover:bg-yellow-600 hover:text-white transition-all">Daftar</a>
                         </div>
                     @endif
                 </div>

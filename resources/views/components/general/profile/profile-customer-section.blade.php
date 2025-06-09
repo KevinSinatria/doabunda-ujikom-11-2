@@ -2,7 +2,7 @@
     {{-- Header of my profile --}}
     <header class="w-full text-center mb-8">
         <h1 class="text-3xl font-semibold text-[#604c10] relative inline-block">
-            Profile of {{ $user->username }}
+            Profil {{ $user->username }}
             <div
                 class="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-[#FFAB00] via-[#FFC107] to-[#FFAB00] rounded-full">
             </div>

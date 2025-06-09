@@ -5,7 +5,7 @@
     @include('components.general.profile.profile-customer-section', [
         'user' => $user,
     ])
-    @if (Auth::user()->role == 'customer')
+    @if ($user->role == 'customer')
         @include('components.general.profile.stats-section', [
             'wishlistsCount' => $wishlistsCount,
             'testimoniesCount' => $testimoniesCount,

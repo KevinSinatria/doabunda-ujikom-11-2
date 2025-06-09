@@ -28,7 +28,7 @@
         <div class="flex flex-6 flex-col px-4 justify-start items-start gap-6">
             <div class="flex-3 flex flex-col justify-start items-start gap-4">
                 <div class="flex items-center gap-2">
-                    <span class="text-sm text-[#604c10]">Category:</span>
+                    <span class="text-sm text-[#604c10]">Kategori:</span>
                     <span
                         class="bg-[#ffda75] px-4 py-2 rounded-lg text-sm font-semibold uppercase text-[#604c10] hover:bg-[#FFAB00] transition-colors duration-300">{{ $product->category->name }}</span>
                 </div>
@@ -48,7 +48,7 @@
                     {{ number_format($product->price, 0, '.', '.') }}</p>
                 <div class="flex items-center gap-2">
                     <i class="ph-fill ph-package text-[#604c10] text-xl"></i>
-                    <p class="text-[#604c10] font-medium">Stock: {{ $product->stock }}</p>
+                    <p class="text-[#604c10] font-medium">Stok: {{ $product->stock }}</p>
                 </div>
             </div>
 
@@ -57,7 +57,7 @@
                 class="flex-7 w-full h-full px-6 py-4 rounded-lg bg-[#fffaef] shadow-lg hover:shadow-xl transition-all duration-300">
                 <h2 class="text-xl font-bold text-[#604c10] mb-3 flex items-center gap-2">
                     <i class="ph-fill ph-info text-[#FFAB00]"></i>
-                    Description of Product
+                    Deskripsi Produk
                 </h2>
                 <div class="text-[#604c10] leading-relaxed">
                     <?= $product->description ?>
@@ -68,7 +68,7 @@
                 href="https://wa.me/62895346195409?text=Hi, Saya ingin bertanya tentang produk {{ $product->name }}"
                 target="_blank">
                 <i class="ph-duotone ph-whatsapp-logo text-[32px]"></i>
-                <span class="font-semibold">Contact Seller</span>
+                <span class="font-semibold">Hubungi Penjual</span>
             </a>
         </div>
 
@@ -102,7 +102,7 @@
         <div class="w-full">
             <h2 class="text-2xl font-bold text-[#604c10] flex items-center gap-2">
                 <i class="ph-fill ph-chat-circle-text text-[#FFAB00]"></i>
-                Testimonies
+                Testimoni
             </h2>
         </div>
 

@@ -9,7 +9,8 @@
 
     {{-- Other Products --}}
     @include('components.general.products.products-section', [
-        'title' => 'Other Products',
+        'title' => 'Produk Lainnya',
+        'subtitle' => 'Temukan produk-produk yang kamu butuhkan di DoaBunda',
         'products' => $other_products,
     ])
 @endsection

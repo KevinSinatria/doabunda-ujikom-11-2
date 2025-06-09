@@ -1,5 +1,6 @@
 <section class="flex flex-col justify-center items-center pt-24 lg:pt-16 gap-4">
     <h1 class="text-3xl font-semibold">{{ $title }}</h1>
+    <p class="text-gray-600">{{ $subtitle }}</p>
 
     @if (request()->routeIs('general.products.index'))
         <div x-data="{ filterOpen: false }" class="w-full flex items-center justify-center">
@@ -17,13 +18,13 @@
                     </div>
                     <input type="search" id="default-search" name="search" x-model="value" autocomplete="off"
                         class="block w-full p-4 ps-10 text-sm transition-all focus:shadow-lg outline-none text-gray-900 border border-gray-300 rounded-lg bg-gray-50"
-                        placeholder="Search Products..." />
+                        placeholder="Cari Produk..." />
                     @if ($search !== '')
                         <i x-on:click="value = ''; setTimeout(() => $refs.searchForm.submit(), 100);"
                             class="ph ph-x text-lg absolute top-4 right-26 cursor-pointer hover:text-[#bd8c22]"></i>
                     @endif
                     <button type="submit"
-                        class="text-white absolute end-2.5 bottom-2.5 duration-100 transition-all cursor-pointer hover:shadow-md bg-[#bd8c22] hover:bg-[#dfac3c] focus:ring-4 focus:outline-none outline-0 font-medium rounded-lg text-sm px-4 py-2">Search</button>
+                        class="text-white absolute end-2.5 bottom-2.5 duration-100 transition-all cursor-pointer hover:shadow-md bg-[#bd8c22] hover:bg-[#dfac3c] focus:ring-4 focus:outline-none outline-0 font-medium rounded-lg text-sm px-4 py-2">Cari</button>
                 </div>
             </form>
             <button x-on:click="filterOpen = !filterOpen" class="relative">
@@ -107,12 +108,12 @@
 
                         <p x-bind:class="isInStock ? 'bg-green-600 top-6 -left-12' : 'bg-red-600 top-6 -left-12'"
                             class="absolute shadow-xl text-sm z-10 text-white font-medium w-full py-1 flex justify-center items-center -rotate-45">
-                            {{ $product->stock > 0 ? 'In Stock' : 'Out of Stock' }}</p>
+                            {{ $product->stock > 0 ? 'Ada Stok' : 'Stok Habis' }}</p>
                         <p
                             x-bind:class="isFeatured ?
                                 'bg-linear-to-r/oklch flex items-center gap-2 justify-center from-[#b3a039] from-10% via-[#B8860B] to-[#b3a039] to-90% absolute top-50 w-full shadow-md text-sm font-medium text-gray-200 py-1 px-3' :
                                 'hidden'">
-                            <span><i class="ph-fill ph-star"></i></span>{{ $product->is_featured ? 'Featured' : '' }}
+                            <span><i class="ph-fill ph-star"></i></span>{{ $product->is_featured ? 'Unggulan' : '' }}
                         </p>
 
                         <form id="wishlist-form-{{ $product->id }}" action="{{ route('customer.wishlists.store') }}"
