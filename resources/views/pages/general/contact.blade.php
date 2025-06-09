@@ -4,7 +4,7 @@
 @section('content')
     <section class="flex flex-col lg:flex-row justify-center items-center pt-24 lg:pt-16 gap-12 px-4">
         <div class="w-full max-w-lg bg-white/80 rounded-2xl shadow-lg p-8 flex flex-col gap-6">
-            <h1 class="text-3xl font-bold text-center text-[#936400]">Contact Us</h1>
+            <h1 class="text-3xl font-bold text-center text-[#936400]">Kontak Kami</h1>
             <p class="text-center text-gray-700">Ada pertanyaan, kritik, atau saran? Silakan kirim pesan ke kami melalui
                 WhatsApp!</p>
             <form action="https://wa.me/62895346195409" method="GET" target="_blank" class="flex flex-col gap-4">

@@ -11,7 +11,7 @@
                 <a href="{{ route('general.home') }}">
                     <img loading="lazy" src="{{ asset('favicon.png') }}" alt="logo-doa-bunda" class="w-12 h-12">
                 </a>
-                <h1 class="text-2xl font-semibold">Sign Up ke <span
+                <h1 class="text-2xl font-semibold">Daftar ke <span
                         class="bg-linear-to-r from-[#FFAB00] to-[#FF6B35] bg-clip-text text-transparent">DoaBunda</span>
                 </h1>
                 <p class="text-gray-700">Selamat datang di DoaBunda!</p>
@@ -63,8 +63,7 @@
                         class="text-[#ef9f00] hover:text-[#4d451c] transition-all cursor-pointer duration-300">Sign In</a>
                 </p>
                 <button type="submit" data-no-swup
-                    class="w-full px-4 py-2 rounded-lg cursor-pointer bg-[#FFAB00] text-white hover:bg-[#FFC107] transition-all duration-300">Sign
-                    Up
+                    class="w-full px-4 py-2 rounded-lg cursor-pointer bg-[#FFAB00] text-white hover:bg-[#FFC107] transition-all duration-300">Daftar</button>
         </form>
     </section>
 

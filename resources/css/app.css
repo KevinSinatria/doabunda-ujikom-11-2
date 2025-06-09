@@ -232,7 +232,7 @@
 
 :root {
     --swup-blue: hsl(239, 50%, 30%);
-    --swup-primary: #5e3c00;
+    --swup-primary: #ffcb71;
     --swup-red: hsl(354, 99%, 68%);
     --swup-green: hsl(172, 65%, 62%);
     --link-underline-color: var(--swup-green);

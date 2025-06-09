@@ -12,7 +12,7 @@
                     <img loading="lazy" src="{{ asset('favicon.png') }}" alt="logo-doa-bunda" class="w-12 h-12">
                 </a>
 
-                <h1 class="text-2xl font-semibold">Sign In ke <span class="bg-linear-to-r from-[#FFAB00] to-[#FF6B35] bg-clip-text text-transparent">DoaBunda</span></h1>
+                <h1 class="text-2xl font-semibold">Masuk ke <span class="bg-linear-to-r from-[#FFAB00] to-[#FF6B35] bg-clip-text text-transparent">DoaBunda</span></h1>
                 <p class="text-gray-700">Selamat datang kembali di DoaBunda!</p>
             </div>
 
@@ -37,11 +37,10 @@
             {{-- Footer of form --}}
             <div class="flex flex-col gap-4 mt-6">
                 <p class="text-sm text-end">Belum punya akun? <a href="{{ route('general.auth.signup') }}"
-                        class="text-[#ef9f00] hover:text-[#4d451c] cursor-pointer transition-all duration-300">Sign Up</a>
+                        class="text-[#ef9f00] hover:text-[#4d451c] cursor-pointer transition-all duration-300">Daftar</a>
                 </p>
                 <button type="submit" data-no-swup
-                    class="w-full px-4 py-2 cursor-pointer rounded-lg bg-[#FFAB00] text-white hover:bg-[#FFC107] transition-all duration-300">Sign
-                    In
+                    class="w-full px-4 py-2 cursor-pointer rounded-lg bg-[#FFAB00] text-white hover:bg-[#FFC107] transition-all duration-300">Masuk</button>
         </form>
     </section>
     @vite(['resources/js/auth/signin-form.js'])

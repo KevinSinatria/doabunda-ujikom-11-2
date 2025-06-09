@@ -12,9 +12,9 @@
         <h1 class="text-3xl font-bold text-[#604c10] relative inline-block group">
             <i class="fas fa-chart-line mr-2"></i>
             @if(request()->routeIs('general.profile'))
-                My Stats
+                Statistik Saya
             @else
-                Stats of {{ $user->username }}
+                Statistik {{ $user->username }}
             @endif
             <div
                 class="absolute -bottom-2 left-0 w-full h-[3px] bg-gradient-to-r from-[#FFAB00] via-[#FFC107] to-[#FFAB00] rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300">
@@ -35,7 +35,7 @@
                     class="fas fa-comment-alt text-[#FFAB00] text-2xl mb-2 group-hover:scale-110 transition-transform duration-300"></i>
                 <span
                     class="text-[36px] font-bold text-[#604c10] group-hover:text-[#FFAB00] transition-colors duration-300">{{ $testimoniesCount }}</span>
-                <p class="text-center text-[#604c10] font-medium">Testimonies Contributed</p>
+                <p class="text-center text-[#604c10] font-medium">Kontribusi Testimoni</p>
             </div>
         </div>
 
@@ -44,9 +44,9 @@
             <h2 class="text-2xl font-bold text-[#604c10] flex items-center gap-2">
                 <i class="fas fa-clock text-[#FFAB00]"></i>
                 @if (request()->routeIs('general.profile'))
-                    Your Account Age
+                    Umur Akun Kamu
                 @else
-                    Account Age
+                    Umur Akun
                 @endif
             </h2>
             <div
@@ -54,22 +54,22 @@
                 <div class="flex flex-col px-6 gap-2 items-center justify-center group">
                     <span
                         class="text-[36px] font-bold text-[#604c10] group-hover:text-[#FFAB00] transition-colors duration-300">{{ $accountAge['days'] }}</span>
-                    <p class="text-[#604c10] font-medium">Days</p>
+                    <p class="text-[#604c10] font-medium">Hari</p>
                 </div>
                 <div class="flex flex-col px-6 gap-2 items-center justify-center group">
                     <span
                         class="text-[36px] font-bold text-[#604c10] group-hover:text-[#FFAB00] transition-colors duration-300">{{ $accountAge['hours'] }}</span>
-                    <p class="text-[#604c10] font-medium">Hours</p>
+                    <p class="text-[#604c10] font-medium">Jam</p>
                 </div>
                 <div class="flex flex-col px-6 gap-2 items-center justify-center group">
                     <span
                         class="text-[36px] font-bold text-[#604c10] group-hover:text-[#FFAB00] transition-colors duration-300">{{ $accountAge['minutes'] }}</span>
-                    <p class="text-[#604c10] font-medium">Minutes</p>
+                    <p class="text-[#604c10] font-medium">Menit</p>
                 </div>
                 <div class="flex flex-col px-6 gap-2 items-center justify-center group">
                     <span
                         class="text-[36px] font-bold text-[#604c10] group-hover:text-[#FFAB00] transition-colors duration-300">{{ $accountAge['seconds'] }}</span>
-                    <p class="text-[#604c10] font-medium">Seconds</p>
+                    <p class="text-[#604c10] font-medium">Detik</p>
                 </div>
             </div>
         </div>

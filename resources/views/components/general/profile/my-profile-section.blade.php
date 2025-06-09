@@ -2,7 +2,7 @@
     {{-- Header of my profile --}}
     <header class="w-full text-center mb-8">
         <h1 class="text-3xl font-semibold text-[#604c10] relative inline-block">
-            My Profile
+            Profil Saya
             <div
                 class="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-[#FFAB00] via-[#FFC107] to-[#FFAB00] rounded-full">
             </div>
@@ -24,13 +24,13 @@
         <div class="flex flex-1 flex-col gap-6 justify-center items-center relative z-10">
             <i
                 class="ph ph-user text-[72px] bg-white rounded-full p-8 shadow-lg relative z-10 group-hover:scale-105 transition-transform duration-300"></i>
-            <button x-on:click="isEdit = !isEdit" x-text="isEdit ? 'Cancel' : 'Edit Profile'"
+            <button x-on:click="isEdit = !isEdit" x-text="isEdit ? 'Cancel' : 'Edit Profil'"
                 x-bind:class="isEdit ? 'bg-red-500 hover:bg-red-600' : 'bg-[#FFAB00] hover:bg-[#FFC107]'"
                 class="w-full px-4 py-2 rounded-lg text-white font-medium shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5">
-                Edit Profile
+                Edit Profil
             </button>
             <a class="w-full bg-red-500 flex gap-4 justify-center items-center px-4 py-2 rounded-lg text-white font-medium shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5" href="{{ route('general.auth.signout') }}">
-                <i class="ph ph-sign-out text-[24px]"></i><span>Sign Out</span>
+                <i class="ph ph-sign-out text-[24px]"></i><span>Keluar</span>
             </a>
         </div>
 
@@ -75,7 +75,7 @@
                     x-transition.origin.top.duration.100 x-show="isEdit">
                     <span class="flex items-center justify-center gap-2">
                         <i class="ph ph-check"></i>
-                        Save Changes
+                        Simpan Perubahan
                     </span>
                 </button>
             </form>

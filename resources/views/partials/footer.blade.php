@@ -39,26 +39,26 @@
 
                 <ul class="mt-12 flex flex-wrap justify-center gap-6 md:gap-8 lg:mt-0 lg:justify-end lg:gap-12">
                     <li>
-                        <a class="text-gray-200 hover:text-white transition-colors duration-300" href="{{ route('general.home') }}"> Home </a>
+                        <a class="text-gray-200 hover:text-white transition-colors duration-300" href="{{ route('general.home') }}"> Beranda </a>
                     </li>
 
                     <li>
-                        <a class="text-gray-200 hover:text-white transition-colors duration-300" href="{{ route('general.products.index') }}"> Product </a>
+                        <a class="text-gray-200 hover:text-white transition-colors duration-300" href="{{ route('general.products.index') }}"> Produk </a>
                     </li>
 
                     <li>
-                        <a class="text-gray-200 hover:text-white transition-colors duration-300" href="{{ route('general.about') }}"> About </a>
+                        <a class="text-gray-200 hover:text-white transition-colors duration-300" href="{{ route('general.about') }}"> Tentang Kami </a>
                     </li>
 
                     <li>
-                        <a class="text-gray-200 hover:text-white transition-colors duration-300" href="{{ route('general.contact') }}"> Contact </a>
+                        <a class="text-gray-200 hover:text-white transition-colors duration-300" href="{{ route('general.contact') }}"> Kontak Kami </a>
                     </li>
                 </ul>
             </div>
 
             <div class="mt-12 border-t border-[#eeb868] pt-8">
                 <p class="text-center text-sm text-gray-300 lg:text-right">
-                    DoaBunda &copy; 2025. All rights reserved.
+                    DoaBunda &copy; 2025. Hak cipta dilindungi undang-undang.
                 </p>
             </div>
         </div>
