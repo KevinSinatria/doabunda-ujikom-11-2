@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities; */
 @import "tailwindcss";
+@import "swiper/css/bundle";
 
 @source "./resources/views/**/*.blade.php";
 @source "./resources/js/**/*.js";
