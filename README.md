@@ -61,7 +61,7 @@ cp .env.example .env
 [![Download DB DoaBunda](https://img.shields.io/badge/-Download_DB_DoaBunda-0077B5?style=flat&logo=linkedin&logoColor=white)](https://www.mediafire.com/file/ssothz4wxc8d144/db_doabunda.sql/file)
 
 ### 2. Buat Database Baru
-Masuk ke MySQL dan buat database baru (misalnya `doabunda_db`):
+Masuk ke MySQL dan buat database baru (misalnya `db_doabunda`):
 
 ```sql
 CREATE DATABASE db_doabunda;
