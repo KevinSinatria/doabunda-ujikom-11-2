@@ -8,6 +8,7 @@ import "@phosphor-icons/web/regular";
 import AOS from "aos";
 import Swal from "sweetalert2";
 import Swup from "swup";
+import Swiper from "swiper/bundle";
 
 import.meta.glob(["../fonts/**"]);
 
@@ -15,6 +16,51 @@ window.Alpine = Alpine;
 window.Swal = Swal;
 
 Alpine.start();
+
+const swiper = new Swiper("#swiper-rtl", {
+    loop: true,
+    autoplay: {
+        delay: 0,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true,
+    },
+    speed: 2500, 
+    spaceBetween: 20,
+    pagination: {
+        el: ".swiper-pagination",
+    },
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+    scrollbar: {
+        el: ".swiper-scrollbar",
+    },
+    slidesPerView: 'auto'
+});
+
+const swiperLtr = new Swiper("#swiper-ltr", {
+    loop: true,
+    autoplay: {
+        delay: 0,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true,
+        reverseDirection: true
+    },
+    speed: 3000, 
+    spaceBetween: 20,
+    pagination: {
+        el: ".swiper-pagination",
+    },
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+    scrollbar: {
+        el: ".swiper-scrollbar",
+    },
+    slidesPerView: 'auto'
+});
 
 AOS.init();
 function updateNavbar() {
