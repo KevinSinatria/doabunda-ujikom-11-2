@@ -134,35 +134,35 @@
                 <h2 class="text-[#604c10] font-semibold mb-6">{{ Auth::user()->username }}</h2>
                 @csrf
                 <div class="rating">
-                    <input type="radio" id="star5" name="rate" value="5" required/>
+                    <input type="radio" id="star5" name="rate" value="5" required />
                     <label for="star5" title="text"><svg viewBox="0 0 576 512" height="1em"
                             xmlns="http://www.w3.org/2000/svg" class="star-solid">
                             <path
                                 d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
                             </path>
                         </svg></label>
-                    <input type="radio" id="star4" name="rate" value="4" required/>
+                    <input type="radio" id="star4" name="rate" value="4" required />
                     <label for="star4" title="text"><svg viewBox="0 0 576 512" height="1em"
                             xmlns="http://www.w3.org/2000/svg" class="star-solid">
                             <path
                                 d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
                             </path>
                         </svg></label>
-                    <input type="radio" id="star3" name="rate" value="3" required/>
+                    <input type="radio" id="star3" name="rate" value="3" required />
                     <label for="star3" title="text"><svg viewBox="0 0 576 512" height="1em"
                             xmlns="http://www.w3.org/2000/svg" class="star-solid">
                             <path
                                 d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
                             </path>
                         </svg></label>
-                    <input type="radio" id="star2" name="rate" value="2" required/>
+                    <input type="radio" id="star2" name="rate" value="2" required />
                     <label for="star2" title="text"><svg viewBox="0 0 576 512" height="1em"
                             xmlns="http://www.w3.org/2000/svg" class="star-solid">
                             <path
                                 d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
                             </path>
                         </svg></label>
-                    <input type="radio" id="star1" name="rate" value="1" required/>
+                    <input type="radio" id="star1" name="rate" value="1" required />
                     <label for="star1" title="text"><svg viewBox="0 0 576 512" height="1em"
                             xmlns="http://www.w3.org/2000/svg" class="star-solid">
                             <path
@@ -201,27 +201,38 @@
         @endif
 
         <div class="w-full flex flex-col divide-y divide-solid divide-[#cba67e] mt-8 gap-8">
-            @foreach ($testimonies as $testimony)
-                <div class="flex w-full pb-8 gap-4 items-start group">
-                    <a href="/profile/{{ $testimony->user->username }}"
-                        class="cursor-pointer group-hover:scale-110 transition-transform duration-300">
-                        <i class="ph-fill ph-user-circle text-[48px]"></i>
-                    </a>
-                    <div class="flex-1">
-                        <a class="cursor-pointer text-[#604c10] font-semibold hover:text-[#FFAB00] transition-colors duration-300"
-                            href="/profile/{{ $testimony->user->username }}">{{ $testimony->user->username }}</a>
-                        @include('components.general.products.stars-ratings-component', [
-                            'ratingAvg' => $testimony->rating,
-                            'size' => '16px',
-                        ])
-                        <p class="text-sm text-[#604c10]">
-                            {{ $testimony->created_at->setTimezone('Asia/Jakarta')->format('d-m-Y H:i') }}</p>
-                        <p class="mt-2 text-[#604c10]">{{ $testimony->testimony }}</p>
-                        <img class="w-32 h-32 rounded-lg object-cover mt-3 hover:scale-105 transition-transform duration-300"
-                            src="{{ asset('storage/' . $testimony->image) }}" alt="">
+            @if ($testimonies->count() > 0)
+
+                @foreach ($testimonies as $testimony)
+                    <div class="flex w-full pb-8 gap-4 items-start group">
+                        <a href="/profile/{{ $testimony->user->username }}"
+                            class="cursor-pointer group-hover:scale-110 transition-transform duration-300">
+                            <i class="ph-fill ph-user-circle text-[48px]"></i>
+                        </a>
+                        <div class="flex-1">
+                            <a class="cursor-pointer text-[#604c10] font-semibold hover:text-[#FFAB00] transition-colors duration-300"
+                                href="/profile/{{ $testimony->user->username }}">{{ $testimony->user->username }}</a>
+                            @include('components.general.products.stars-ratings-component', [
+                                'ratingAvg' => $testimony->rating,
+                                'size' => '16px',
+                            ])
+                            <p class="text-sm text-[#604c10]">
+                                {{ $testimony->created_at->setTimezone('Asia/Jakarta')->format('d-m-Y H:i') }}</p>
+                            <p class="mt-2 text-[#604c10]">{{ $testimony->testimony }}</p>
+                            <img class="w-32 h-32 rounded-lg object-cover mt-3 hover:scale-105 transition-transform duration-300"
+                                src="{{ asset('storage/' . $testimony->image) }}" alt="">
+                        </div>
                     </div>
+                @endforeach
+            @else
+            <div class="flex flex-col justify-center items-center py-8 gap-8 w-full">
+                <img class="w-80 drop-shadow-lg" src="{{ asset('assets/vector/undraw_empty_4zx0 (1).svg') }}" alt="Vector Empty">
+                <div class="flex flex-col w-full justify-center items-center">
+                    <h2 class="text-[#604c10] font-semibold text-[32px]">Belum ada testimoni</h2>
+                    <p class="text-sm">Belum ada testimoni untuk produk ini.</p>
                 </div>
-            @endforeach
+            </div>
+            @endif
             <div class="px-4 py-4 rounded-xl bg-[#f5d689] shadow-md">
                 {{ $testimonies->links('pagination::tailwind') }}
             </div>

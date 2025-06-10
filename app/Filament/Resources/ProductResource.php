@@ -43,7 +43,7 @@ class ProductResource extends Resource
 
     public static function getEloquentQuery(): Builder
     {
-        return parent::getEloquentQuery()->with(['images', 'category']);
+        return parent::getEloquentQuery()->with(['images', 'category'])->latest('created_at');
     }
 
     public static function form(Form $form): Form
