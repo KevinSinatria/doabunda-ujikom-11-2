@@ -11,6 +11,7 @@
         "laravel/framework": "^11.31",
         "laravel/tinker": "^2.9",
         "laravolt/avatar": "^6.2",
+        "mckenziearts/laravel-notify": "^2.7",
         "spatie/laravel-image-optimizer": "^1.8",
         "sweetalert2/laravel": "^0.1.0"
     },
