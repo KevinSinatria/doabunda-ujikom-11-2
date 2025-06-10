@@ -84,3 +84,7 @@ Route::prefix("admin")->group(function () {
     // });
 });
 
+Route::fallback(function () {
+    return view('errors.404');
+});
+
