@@ -76,7 +76,7 @@ Ubah bagian konfigurasi database di file `.env`:
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=doabunda_db
+DB_DATABASE=db_doabunda
 DB_USERNAME=root
 DB_PASSWORD= # isi sesuai konfigurasi MySQL kamu
 ```
