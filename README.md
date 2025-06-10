@@ -40,7 +40,7 @@
 ### 1. Clone Proyek
 ```bash
 git clone https://github.com/KevinSinatria/doabunda-uijkom-11-2.git
-cd doabunda
+cd doabunda-uijkom-11-2
 ```
 
 ### 2. Install Dependency Laravel
