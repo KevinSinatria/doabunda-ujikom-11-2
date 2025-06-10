@@ -1,5 +1,7 @@
 # DoaBunda
 
+<img width="200" src="./public/favicon.png">
+
 **DoaBunda** adalah platform web yang mendukung penjualan produk fashion bekas berkualitas (preloved). Proyek ini dibuat sebagai bagian dari Ujikom dan bertujuan untuk membantu pelaku UMKM, khususnya teman saya (reseller), dalam menjual produk fashion secara efisien dan modern.
 
 ## 🔧 Tech Stack
