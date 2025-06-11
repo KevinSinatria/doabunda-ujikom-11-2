@@ -58,10 +58,11 @@
                             href="{{ route('general.contact') }}"> Kontak Kami </a>
                     </li>
 
-                    {{-- <li>
+                    <li>
                         <a class="text-gray-200 hover:text-white transition-colors duration-300"
-                            href="{{ route('general.help') }}"> Bantuan </a>
-                    </li> --}}
+                            href="https://www.mediafire.com/file/nkqxsn48buynlrp/User_Manual_Book_-_DoaBunda.zip/file"
+                            target="_blank"> Bantuan </a>
+                    </li>
                 </ul>
             </div>
 
