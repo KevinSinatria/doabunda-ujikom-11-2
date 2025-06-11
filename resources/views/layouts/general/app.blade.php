@@ -14,7 +14,7 @@
 </head>
 
 <body class="font-poppins overflow-x-hidden">
-    <div id="swup" class="transition-main">
+    <div class="transition-main">
         @include('sweetalert2::index')
         @include('partials.header')
         <main class="bg-[#FFEAC5]">
@@ -47,7 +47,6 @@
             </script>
         @endif
     </div>
-    <div class="overlay transition-overlay"></div>
 </body>
 
 
