@@ -5,19 +5,19 @@
 
 ## 📋 Table of Contents / Daftar Isi
 
-- [🔧 Tech Stack](#-tech-stack)
-- [📦 Fitur Utama](#-fitur-utama)
-  - [👥 Untuk Customer](#-untuk-customer)
-  - [🔐 Untuk Admin](#-untuk-admin)
-- [🚀 Cara Instalasi Proyek](#-cara-instalasi-proyek)
-- [🗄️ Konfigurasi Database](#️-konfigurasi-database)
-- [🖼️ Menjalankan Proyek](#️-menjalankan-proyek)
-- [🧪 Akun Demo](#-akun-demo)
-- [📁 Struktur Folder Utama](#-struktur-folder-utama)
-- [🌱 Tentang Sustainable Fashion](#-tentang-sustainable-fashion)
-- [📄 Lisensi](#-lisensi)
-- [🤝 Kontributor](#-kontributor)
-- [📞 Dukungan](#-dukungan)
+- [Tech Stack](#-tech-stack)
+- [Fitur Utama](#-fitur-utama)
+  - [Untuk Customer](#-untuk-customer)
+  - [Untuk Admin](#-untuk-admin)
+- [Cara Instalasi Proyek](#-cara-instalasi-proyek)
+- [Konfigurasi Database](#️-konfigurasi-database)
+- [Menjalankan Proyek](#️-menjalankan-proyek)
+- [Akun Demo](#-akun-demo)
+- [Struktur Folder Utama](#-struktur-folder-utama)
+- [Tentang Sustainable Fashion](#-tentang-sustainable-fashion)
+- [Lisensi](#-lisensi)
+- [Kontributor](#-kontributor)
+- [Dukungan](#-dukungan)
 
 ## 🔧 Tech Stack
 
