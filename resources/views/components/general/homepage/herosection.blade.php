@@ -33,7 +33,7 @@
         <!-- Background Circle -->
         <div
             class="w-72 h-72 md:w-80 md:h-80 lg:w-[35rem] lg:h-[35rem] 
-                    bg-[#A67B5B] rounded-full absolute 
+                    bg-conic-180 from-[#A67B5B] via-[#9e7459] to-[#A67B5B]  rounded-full absolute 
                     -top-12 -right-8 sm:-top-16 sm:-right-10 
                     md:-top-20 md:-right-12 
                     lg:-top-40 lg:-right-16">

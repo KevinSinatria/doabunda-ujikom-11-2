@@ -17,51 +17,6 @@ window.Swal = Swal;
 
 Alpine.start();
 
-const swiper = new Swiper("#swiper-rtl", {
-    loop: true,
-    autoplay: {
-        delay: 0,
-        disableOnInteraction: false,
-        pauseOnMouseEnter: true,
-    },
-    speed: 2500, 
-    spaceBetween: 20,
-    pagination: {
-        el: ".swiper-pagination",
-    },
-    navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-    },
-    scrollbar: {
-        el: ".swiper-scrollbar",
-    },
-    slidesPerView: 'auto'
-});
-
-const swiperLtr = new Swiper("#swiper-ltr", {
-    loop: true,
-    autoplay: {
-        delay: 0,
-        disableOnInteraction: false,
-        pauseOnMouseEnter: true,
-        reverseDirection: true
-    },
-    speed: 3000, 
-    spaceBetween: 20,
-    pagination: {
-        el: ".swiper-pagination",
-    },
-    navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-    },
-    scrollbar: {
-        el: ".swiper-scrollbar",
-    },
-    slidesPerView: 'auto'
-});
-
 AOS.init();
 function updateNavbar() {
     const headerHome = document.getElementById("header-home");
@@ -157,10 +112,62 @@ function updateNavbar() {
     }
 }
 
+function updateTestimonies() {
+    const swiperRtl = new Swiper("#swiper-rtl", {
+        loop: true,
+        autoplay: {
+            delay: 0,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+        },
+        speed: 2500,
+        spaceBetween: 20,
+        pagination: {
+            el: ".swiper-pagination",
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        scrollbar: {
+            el: ".swiper-scrollbar",
+        },
+        slidesPerView: "auto",
+    });
+
+    const swiperLtr = new Swiper("#swiper-ltr", {
+        loop: true,
+        autoplay: {
+            delay: 0,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+            reverseDirection: true,
+        },
+        speed: 3000,
+        spaceBetween: 20,
+        pagination: {
+            el: ".swiper-pagination",
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        scrollbar: {
+            el: ".swiper-scrollbar",
+        },
+        slidesPerView: "auto",
+    });
+}
+
 export const swup = new Swup({
     containers: ["#swup"],
     linkSelector: "a[href]:not([data-no-swup])",
 });
+
+if (window.location.pathname === "/") {
+    window.addEventListener("DOMContentLoaded", updateTestimonies);
+    swup.hooks.on("content:replace", updateTestimonies);
+}
 
 window.addEventListener("DOMContentLoaded", updateNavbar);
 swup.hooks.on("content:replace", updateNavbar);

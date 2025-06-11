@@ -1,6 +1,6 @@
-<section class="flex flex-col justify-center items-center pt-24 lg:pt-16 gap-4">
+<section class="flex flex-col w-full justify-center items-center pt-24 lg:pt-16 gap-4">
     <h1 class="text-3xl font-semibold">{{ $title }}</h1>
-    <p class="text-gray-600">{{ $subtitle }}</p>
+    <p class="text-gray-600 text-center">{{ $subtitle }}</p>
 
     @if (request()->routeIs('general.products.index'))
         <div x-data="{ filterOpen: false }" class="w-full flex items-center justify-center">
