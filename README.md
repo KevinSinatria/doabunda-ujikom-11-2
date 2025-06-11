@@ -1,8 +1,23 @@
 # DoaBunda
-
 <img width="200" src="./public/favicon.png">
 
 **DoaBunda** adalah platform web yang mendukung penjualan produk fashion bekas berkualitas (preloved). Proyek ini dibuat sebagai bagian dari Ujikom dan bertujuan untuk membantu pelaku UMKM, khususnya teman saya (reseller), dalam menjual produk fashion secara efisien dan modern.
+
+## 📋 Table of Contents / Daftar Isi
+
+- [🔧 Tech Stack](#-tech-stack)
+- [📦 Fitur Utama](#-fitur-utama)
+  - [👥 Untuk Customer](#-untuk-customer)
+  - [🔐 Untuk Admin](#-untuk-admin)
+- [🚀 Cara Instalasi Proyek](#-cara-instalasi-proyek)
+- [🗄️ Konfigurasi Database](#️-konfigurasi-database)
+- [🖼️ Menjalankan Proyek](#️-menjalankan-proyek)
+- [🧪 Akun Demo](#-akun-demo)
+- [📁 Struktur Folder Utama](#-struktur-folder-utama)
+- [🌱 Tentang Sustainable Fashion](#-tentang-sustainable-fashion)
+- [📄 Lisensi](#-lisensi)
+- [🤝 Kontributor](#-kontributor)
+- [📞 Dukungan](#-dukungan)
 
 ## 🔧 Tech Stack
 
@@ -16,26 +31,26 @@
 
 ---
 
-## Fitur Utama
+## 📦 Fitur Utama
 
-### Untuk Customer
--  Register & Login
--  Lihat dan ubah profil
--  Jelajahi produk
--  Lihat detail produk & hubungi penjual
--  Tambah ke wishlist
--  Lihat dan kirim testimoni
+### 👥 Untuk Customer
+- Register & Login
+- Lihat dan ubah profil
+- Jelajahi produk
+- Lihat detail produk & hubungi penjual
+- Tambah ke wishlist
+- Lihat dan kirim testimoni
 
-### Untuk Admin
--  Dashboard Admin
--  CRUD Kategori Produk
--  CRUD Data Customer
--  CRUD Produk
--  CRUD Testimoni Permission
+### 🔐 Untuk Admin
+- Dashboard Admin
+- CRUD Kategori Produk
+- CRUD Data Customer
+- CRUD Produk
+- CRUD Testimoni Permission
 
 ---
 
-## Cara Instalasi Proyek
+## 🚀 Cara Instalasi Proyek
 
 ### 1. Clone Proyek
 ```bash
@@ -93,13 +108,13 @@ php artisan serve
 
 ---
 
-## Akun Demo
+## 🧪 Akun Demo
 
-###  Akun Admin
+### 🔐 Akun Admin
 - **Email:** admin@gmail.com
 - **Password:** 5908.bdg
 
-###  Akun Customer
+### 👤 Akun Customer
 - Coba fitur register untuk membuat akun baru dengan role customer
 
 ---
@@ -127,6 +142,8 @@ DoaBunda mendukung gerakan sustainable fashion melalui:
 - ♻️ **Reduce:** Mengurangi limbah fashion
 - 🔄 **Reuse:** Memberikan kehidupan kedua untuk pakaian berkualitas
 - 🌍 **Recycle:** Mendukung ekonomi sirkular
+
+---
 
 ---
 
