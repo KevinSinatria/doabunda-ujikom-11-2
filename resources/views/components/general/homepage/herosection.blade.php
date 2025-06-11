@@ -3,7 +3,7 @@
     <!-- Text Content -->
     <div
         class="flex-1 max-w-2xl lg:max-w-none lg:px-8 xl:px-20 text-center lg:text-left z-10 order-2 lg:order-1 mt-8 lg:mt-0">
-        <h1 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight">
+        <h1 id="quotes" class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight">
             100% Original, 0% Basa-basi.
         </h1>
         <p
@@ -21,10 +21,11 @@
                             d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                 </span>
-    
+
                 <span class="text-sm font-medium transition-all group-hover:me-4"> Lihat Koleksi </span>
             </a>
-            <a href="https://www.instagram.com/doabundaa_/" class="flex items-center"><i class="ph-fill ph-instagram-logo text-[48px] relative top-2 hover:bg-linear-to-br hover:from-violet-600 hover:via-red-500 hover:to-yellow-500 hover:bg-clip-text hover:text-transparent duration-300 transition-all"></i></a>
+            <a href="https://www.instagram.com/doabundaa_/" class="flex items-center"><i
+                    class="ph-fill ph-instagram-logo text-[48px] relative top-2 hover:bg-linear-to-br hover:from-violet-600 hover:via-red-500 hover:to-yellow-500 hover:bg-clip-text hover:text-transparent duration-300 transition-all"></i></a>
         </div>
     </div>
 

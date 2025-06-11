@@ -7,7 +7,6 @@ import "@phosphor-icons/web/duotone";
 import "@phosphor-icons/web/regular";
 import AOS from "aos";
 import Swal from "sweetalert2";
-import Swup from "swup";
 import Swiper from "swiper/bundle";
 
 import.meta.glob(["../fonts/**"]);
@@ -159,15 +158,13 @@ function updateTestimonies() {
     });
 }
 
-export const swup = new Swup({
-    containers: ["#swup"],
-    linkSelector: "a[href]:not([data-no-swup])",
-});
+// export const swup = new Swup({
+//     containers: ["#swup"],
+//     linkSelector: "a[href]:not([data-no-swup])",
+// });
 
-if (window.location.pathname === "/") {
-    window.addEventListener("DOMContentLoaded", updateTestimonies);
-    swup.hooks.on("content:replace", updateTestimonies);
-}
+window.addEventListener("DOMContentLoaded", updateTestimonies);
+// swup.hooks.on("content:replace", updateTestimonies);
 
 window.addEventListener("DOMContentLoaded", updateNavbar);
-swup.hooks.on("content:replace", updateNavbar);
+// swup.hooks.on("content:replace", updateNavbar);
