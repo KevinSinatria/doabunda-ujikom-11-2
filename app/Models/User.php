@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class User extends Authenticatable implements FilamentUser
 {
@@ -51,12 +52,24 @@ class User extends Authenticatable implements FilamentUser
 
     public function canAccessPanel(Panel $panel): bool
     {
-        return Auth::check();
+        Log::info('User accessing Filament panel:', [
+            'user_id' => $this->id,
+            'user_email' => $this->email,
+            'user_name' => $this->username,
+            'panel_id' => $panel->getId(),
+        ]);
+
+        return Auth::check() && Auth::user()->role == 'admin';
     }
 
     public function canAccessProfile(Panel $panel): bool
     {
-        return Auth::check();
+        return $this->canAccessPanel($panel);
+    }
+
+    public function getFilamentName(): string
+    {
+        return $this->username ?? $this->email ?? 'Admin';
     }
 
     public function wishlists()
