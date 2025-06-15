@@ -1,0 +1,1 @@
+import{f as s,c as t}from"./form-validator-KQ19CupA.js";const a=document.getElementById("signin-form"),o=a.elements.email,m=a.elements.password;function n(i){const e=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;i.target.value.length>0&&t(i,e,"Format email tidak sesuai")}s(o,"Email wajib diisi.",n);s(m,"Password wajib diisi.");
