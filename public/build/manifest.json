@@ -1,0 +1,216 @@
+{
+  "_form-validator-KQ19CupA.js": {
+    "file": "assets/form-validator-KQ19CupA.js",
+    "name": "form-validator"
+  },
+  "node_modules/@phosphor-icons/web/src/bold/Phosphor-Bold.svg": {
+    "file": "assets/Phosphor-Bold-CIyscVBM.svg",
+    "src": "node_modules/@phosphor-icons/web/src/bold/Phosphor-Bold.svg"
+  },
+  "node_modules/@phosphor-icons/web/src/bold/Phosphor-Bold.ttf": {
+    "file": "assets/Phosphor-Bold-y1cGIEs3.ttf",
+    "src": "node_modules/@phosphor-icons/web/src/bold/Phosphor-Bold.ttf"
+  },
+  "node_modules/@phosphor-icons/web/src/bold/Phosphor-Bold.woff": {
+    "file": "assets/Phosphor-Bold-Bs3tcKfK.woff",
+    "src": "node_modules/@phosphor-icons/web/src/bold/Phosphor-Bold.woff"
+  },
+  "node_modules/@phosphor-icons/web/src/bold/Phosphor-Bold.woff2": {
+    "file": "assets/Phosphor-Bold-BCak21uZ.woff2",
+    "src": "node_modules/@phosphor-icons/web/src/bold/Phosphor-Bold.woff2"
+  },
+  "node_modules/@phosphor-icons/web/src/duotone/Phosphor-Duotone.svg": {
+    "file": "assets/Phosphor-Duotone-D8lfv-AX.svg",
+    "src": "node_modules/@phosphor-icons/web/src/duotone/Phosphor-Duotone.svg"
+  },
+  "node_modules/@phosphor-icons/web/src/duotone/Phosphor-Duotone.ttf": {
+    "file": "assets/Phosphor-Duotone-B53-f1eC.ttf",
+    "src": "node_modules/@phosphor-icons/web/src/duotone/Phosphor-Duotone.ttf"
+  },
+  "node_modules/@phosphor-icons/web/src/duotone/Phosphor-Duotone.woff": {
+    "file": "assets/Phosphor-Duotone-BFE_OHZm.woff",
+    "src": "node_modules/@phosphor-icons/web/src/duotone/Phosphor-Duotone.woff"
+  },
+  "node_modules/@phosphor-icons/web/src/duotone/Phosphor-Duotone.woff2": {
+    "file": "assets/Phosphor-Duotone-BOGiEKDk.woff2",
+    "src": "node_modules/@phosphor-icons/web/src/duotone/Phosphor-Duotone.woff2"
+  },
+  "node_modules/@phosphor-icons/web/src/fill/Phosphor-Fill.svg": {
+    "file": "assets/Phosphor-Fill-BofDnXwa.svg",
+    "src": "node_modules/@phosphor-icons/web/src/fill/Phosphor-Fill.svg"
+  },
+  "node_modules/@phosphor-icons/web/src/fill/Phosphor-Fill.ttf": {
+    "file": "assets/Phosphor-Fill-N9gYSHy0.ttf",
+    "src": "node_modules/@phosphor-icons/web/src/fill/Phosphor-Fill.ttf"
+  },
+  "node_modules/@phosphor-icons/web/src/fill/Phosphor-Fill.woff": {
+    "file": "assets/Phosphor-Fill-CS2zOYDV.woff",
+    "src": "node_modules/@phosphor-icons/web/src/fill/Phosphor-Fill.woff"
+  },
+  "node_modules/@phosphor-icons/web/src/fill/Phosphor-Fill.woff2": {
+    "file": "assets/Phosphor-Fill-D4CDmGRg.woff2",
+    "src": "node_modules/@phosphor-icons/web/src/fill/Phosphor-Fill.woff2"
+  },
+  "node_modules/@phosphor-icons/web/src/light/Phosphor-Light.svg": {
+    "file": "assets/Phosphor-Light-BTiR1Cbr.svg",
+    "src": "node_modules/@phosphor-icons/web/src/light/Phosphor-Light.svg"
+  },
+  "node_modules/@phosphor-icons/web/src/light/Phosphor-Light.ttf": {
+    "file": "assets/Phosphor-Light-Cmen2P86.ttf",
+    "src": "node_modules/@phosphor-icons/web/src/light/Phosphor-Light.ttf"
+  },
+  "node_modules/@phosphor-icons/web/src/light/Phosphor-Light.woff": {
+    "file": "assets/Phosphor-Light-Ch5YcZ-M.woff",
+    "src": "node_modules/@phosphor-icons/web/src/light/Phosphor-Light.woff"
+  },
+  "node_modules/@phosphor-icons/web/src/light/Phosphor-Light.woff2": {
+    "file": "assets/Phosphor-Light-CGwbSLuF.woff2",
+    "src": "node_modules/@phosphor-icons/web/src/light/Phosphor-Light.woff2"
+  },
+  "node_modules/@phosphor-icons/web/src/regular/Phosphor.svg": {
+    "file": "assets/Phosphor-BXRFlF4V.svg",
+    "src": "node_modules/@phosphor-icons/web/src/regular/Phosphor.svg"
+  },
+  "node_modules/@phosphor-icons/web/src/regular/Phosphor.ttf": {
+    "file": "assets/Phosphor-CDxgqcPu.ttf",
+    "src": "node_modules/@phosphor-icons/web/src/regular/Phosphor.ttf"
+  },
+  "node_modules/@phosphor-icons/web/src/regular/Phosphor.woff": {
+    "file": "assets/Phosphor-BdqudwT5.woff",
+    "src": "node_modules/@phosphor-icons/web/src/regular/Phosphor.woff"
+  },
+  "node_modules/@phosphor-icons/web/src/regular/Phosphor.woff2": {
+    "file": "assets/Phosphor-DtdjzkpE.woff2",
+    "src": "node_modules/@phosphor-icons/web/src/regular/Phosphor.woff2"
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-DzXKTJm2.css",
+    "src": "resources/css/app.css",
+    "isEntry": true
+  },
+  "resources/fonts/Poppins/OFL.txt": {
+    "file": "assets/OFL-BhyHLHin.txt",
+    "src": "resources/fonts/Poppins/OFL.txt"
+  },
+  "resources/fonts/Poppins/Poppins-Black.ttf": {
+    "file": "assets/Poppins-Black-yHqY0KRU.ttf",
+    "src": "resources/fonts/Poppins/Poppins-Black.ttf"
+  },
+  "resources/fonts/Poppins/Poppins-BlackItalic.ttf": {
+    "file": "assets/Poppins-BlackItalic-cm4Pcmzs.ttf",
+    "src": "resources/fonts/Poppins/Poppins-BlackItalic.ttf"
+  },
+  "resources/fonts/Poppins/Poppins-Bold.ttf": {
+    "file": "assets/Poppins-Bold-qTAUjFF7.ttf",
+    "src": "resources/fonts/Poppins/Poppins-Bold.ttf"
+  },
+  "resources/fonts/Poppins/Poppins-BoldItalic.ttf": {
+    "file": "assets/Poppins-BoldItalic-DRcRqYlu.ttf",
+    "src": "resources/fonts/Poppins/Poppins-BoldItalic.ttf"
+  },
+  "resources/fonts/Poppins/Poppins-ExtraBold.ttf": {
+    "file": "assets/Poppins-ExtraBold-W_qeO1XX.ttf",
+    "src": "resources/fonts/Poppins/Poppins-ExtraBold.ttf"
+  },
+  "resources/fonts/Poppins/Poppins-ExtraBoldItalic.ttf": {
+    "file": "assets/Poppins-ExtraBoldItalic-C9zKPiZo.ttf",
+    "src": "resources/fonts/Poppins/Poppins-ExtraBoldItalic.ttf"
+  },
+  "resources/fonts/Poppins/Poppins-ExtraLight.ttf": {
+    "file": "assets/Poppins-ExtraLight-u2IJXg5c.ttf",
+    "src": "resources/fonts/Poppins/Poppins-ExtraLight.ttf"
+  },
+  "resources/fonts/Poppins/Poppins-ExtraLightItalic.ttf": {
+    "file": "assets/Poppins-ExtraLightItalic-DV_5Lr0Z.ttf",
+    "src": "resources/fonts/Poppins/Poppins-ExtraLightItalic.ttf"
+  },
+  "resources/fonts/Poppins/Poppins-Italic.ttf": {
+    "file": "assets/Poppins-Italic-PjgN8SAi.ttf",
+    "src": "resources/fonts/Poppins/Poppins-Italic.ttf"
+  },
+  "resources/fonts/Poppins/Poppins-Light.ttf": {
+    "file": "assets/Poppins-Light-DT6-CsId.ttf",
+    "src": "resources/fonts/Poppins/Poppins-Light.ttf"
+  },
+  "resources/fonts/Poppins/Poppins-LightItalic.ttf": {
+    "file": "assets/Poppins-LightItalic-CDXp65eX.ttf",
+    "src": "resources/fonts/Poppins/Poppins-LightItalic.ttf"
+  },
+  "resources/fonts/Poppins/Poppins-Medium.ttf": {
+    "file": "assets/Poppins-Medium-Cxde2ZoM.ttf",
+    "src": "resources/fonts/Poppins/Poppins-Medium.ttf"
+  },
+  "resources/fonts/Poppins/Poppins-MediumItalic.ttf": {
+    "file": "assets/Poppins-MediumItalic-C6e40Oak.ttf",
+    "src": "resources/fonts/Poppins/Poppins-MediumItalic.ttf"
+  },
+  "resources/fonts/Poppins/Poppins-Regular.ttf": {
+    "file": "assets/Poppins-Regular-CTKNfV9P.ttf",
+    "src": "resources/fonts/Poppins/Poppins-Regular.ttf"
+  },
+  "resources/fonts/Poppins/Poppins-SemiBold.ttf": {
+    "file": "assets/Poppins-SemiBold-B_fPDAUb.ttf",
+    "src": "resources/fonts/Poppins/Poppins-SemiBold.ttf"
+  },
+  "resources/fonts/Poppins/Poppins-SemiBoldItalic.ttf": {
+    "file": "assets/Poppins-SemiBoldItalic-1z_hA9Cm.ttf",
+    "src": "resources/fonts/Poppins/Poppins-SemiBoldItalic.ttf"
+  },
+  "resources/fonts/Poppins/Poppins-Thin.ttf": {
+    "file": "assets/Poppins-Thin-leD9T1nx.ttf",
+    "src": "resources/fonts/Poppins/Poppins-Thin.ttf"
+  },
+  "resources/fonts/Poppins/Poppins-ThinItalic.ttf": {
+    "file": "assets/Poppins-ThinItalic-DeF98U39.ttf",
+    "src": "resources/fonts/Poppins/Poppins-ThinItalic.ttf"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-Byx3aXPg.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true,
+    "css": [
+      "assets/app-MghXt40b.css"
+    ],
+    "assets": [
+      "assets/Phosphor-Light-CGwbSLuF.woff2",
+      "assets/Phosphor-Light-Ch5YcZ-M.woff",
+      "assets/Phosphor-Light-Cmen2P86.ttf",
+      "assets/Phosphor-Light-BTiR1Cbr.svg",
+      "assets/Phosphor-Bold-BCak21uZ.woff2",
+      "assets/Phosphor-Bold-Bs3tcKfK.woff",
+      "assets/Phosphor-Bold-y1cGIEs3.ttf",
+      "assets/Phosphor-Bold-CIyscVBM.svg",
+      "assets/Phosphor-Fill-D4CDmGRg.woff2",
+      "assets/Phosphor-Fill-CS2zOYDV.woff",
+      "assets/Phosphor-Fill-N9gYSHy0.ttf",
+      "assets/Phosphor-Fill-BofDnXwa.svg",
+      "assets/Phosphor-Duotone-BOGiEKDk.woff2",
+      "assets/Phosphor-Duotone-BFE_OHZm.woff",
+      "assets/Phosphor-Duotone-B53-f1eC.ttf",
+      "assets/Phosphor-Duotone-D8lfv-AX.svg",
+      "assets/Phosphor-DtdjzkpE.woff2",
+      "assets/Phosphor-BdqudwT5.woff",
+      "assets/Phosphor-CDxgqcPu.ttf",
+      "assets/Phosphor-BXRFlF4V.svg"
+    ]
+  },
+  "resources/js/auth/signin-form.js": {
+    "file": "assets/signin-form-B-nunZEu.js",
+    "name": "signin-form",
+    "src": "resources/js/auth/signin-form.js",
+    "isEntry": true,
+    "imports": [
+      "_form-validator-KQ19CupA.js"
+    ]
+  },
+  "resources/js/auth/signup-form.js": {
+    "file": "assets/signup-form-BsvnUfiU.js",
+    "name": "signup-form",
+    "src": "resources/js/auth/signup-form.js",
+    "isEntry": true,
+    "imports": [
+      "_form-validator-KQ19CupA.js"
+    ]
+  }
+}
