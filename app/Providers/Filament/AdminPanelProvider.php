@@ -60,8 +60,6 @@ class AdminPanelProvider extends PanelProvider
                 DispatchServingFilamentEvent::class,
             ])
             ->authMiddleware([
-                MiddlewareAuthenticate::class,
-                AuthMiddleware::class,
                 AdminMiddleware::class
             ])
             ->unsavedChangesAlerts()
